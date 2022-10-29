@@ -4,10 +4,10 @@
 #### BackUp dotfile with symlinks
 
 to move file:\
-  mv FILEPATH GITPATH
+  ``` $ mv FILEPATH GITPATH ```
   
 create symlink:\
-  ``` ln -s GITPATH FILEPATH ```
+  ``` $ ln -s GITPATH FILEPATH ```
 
 |         |               |
 |---------|---------------|

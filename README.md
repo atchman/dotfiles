@@ -9,7 +9,6 @@ to move file:\
 create symlink:\
   ``` $ ln -s GITPATH FILEPATH ```
 
-|         |               |
 |---------|---------------|
 | OS      | EndeavourOS   |
 | WM      | i3            |

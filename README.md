@@ -9,9 +9,16 @@ to move file:\
 create symlink:\
   ``` $ ln -s GITPATH FILEPATH ```
 
-
+|         | Use   |
+|---------|---------------|
 | OS      | EndeavourOS   |
 | WM      | i3            |
-| Terminal|               |
+| Compositor| Picom        |
+| Terminal| Alacritty     |
 | Shell   | bash          |
 | Editor  | nvim          |
+|         | xclip |
+|program launcher | rofi |
+| File Manager | Thunar |
+| Media Player | mpv |
+| Musik Player | Cantata |

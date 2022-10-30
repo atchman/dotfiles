@@ -1,13 +1,8 @@
 # dotfiles
-### My dotfiles
+## My dotfiles
 
-#### BackUp dotfile with symlinks
 
-to move file:\
-  ``` $ mv FILEPATH GITPATH ```
-  
-create symlink:\
-  ``` $ ln -s GITPATH FILEPATH ```
+#### System
 
 |         | Use   |
 |---------|---------------|
@@ -22,3 +17,20 @@ create symlink:\
 | File Manager | Thunar |
 | Media Player | mpv |
 | Musik Player | Cantata |
+
+
+### BackUp dotfile with symlinks
+#### Erstellen
+
+to move file:\
+  ``` $ mv FILEPATH GITPATH ```
+
+create symlink:\
+  ``` $ ln -s GITPATH FILEPATH ```
+
+#### Wiederherstellen
+1. ``` git clone Repo ```
+2. ``` run backUp.sh ```
+
+
+

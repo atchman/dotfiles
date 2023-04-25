@@ -1,0 +1,82 @@
+;; Variables
+
+
+
+(deflisten workspace "scripts/workspace")
+
+
+
+
+
+;; Widgets
+
+(defwidget clock []
+    
+)
+
+(defwidget workspace []
+    (literal :content workspace
+))
+
+
+;; Status Bar
+(defwidget left []
+    (box :class "left_modul"
+         :orientation "h"
+         :space-evenly false
+         :halign "start"
+    "workspace"   
+))
+
+(defwidget center []
+    (box :class "center_modul"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+    "Windows Title"
+))
+
+(defwidget right []
+    (box :class "right_modul"
+         :orientation "h"
+         :space_evenly false
+         :halign "end"
+    "CPU"
+    "Temp"
+    "Mem"
+    "Disk"
+    "update"
+    "Wlan/Ethernet"
+    "audio"
+    "mic"
+    "clock"
+    "calendar"
+    "language"
+    "bright"
+    "battery"
+))
+
+(defwidget bar []
+    (box :class "statusbar"
+         :orientation "h"
+    (left)
+    (center)
+    (right)
+))
+
+;; Windows
+(defwindow bar
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "100%"
+                        :height "30px"
+                        :anchor "top center")
+    :stacking "fg"
+;;    :reserve (struts :side "top" 
+;;                     :distance "40px")
+    :windowtype "dock"
+    :exclusive true
+    :focusable false
+    (bar))
+    

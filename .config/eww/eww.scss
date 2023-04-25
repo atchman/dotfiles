@@ -1,0 +1,39 @@
+
+* {
+    all: unset;  // Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+.bar {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ffd5cd;
+    font-family:  Hack Nerd Font;
+    font-size: 12px;
+}
+
+
+// bar class
+.statusbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+    margin: 0px 0px 4px 0px;
+    border-radius: 0px;
+}
+
+// Styles on classes
+.left_modul {
+    padding: 0 15px;
+}
+
+
+.center_modul {
+    color: #ffd5cd
+}
+
+
+.right_modul {
+    padding: 0 15px;
+    color: #ffd5cd
+}
+
+

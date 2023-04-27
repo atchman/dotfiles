@@ -15,7 +15,7 @@
 alias n="nvim"
 alias N="sudo nvim"
 alias g="cd ~/git" 
-alias grup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias grubc="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias grubi="sudo grub-install"
 alias commands="nvim ~/Documents/docs/commands"
 alias dotfiles='/sbin/git --git-dir=$HOME/git/dotfiles/.git/ --work-tree=$HOME'

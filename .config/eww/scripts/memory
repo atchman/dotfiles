@@ -1,0 +1,5 @@
+#!/bin/bash
+
+men=$(free -h --mega | grep Mem | awk '{print $3}')
+
+echo "$men" && exit

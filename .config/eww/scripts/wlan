@@ -1,0 +1,9 @@
+#!/bin/bash
+
+status = "/sys/class/net/wlan0/operstate"
+wlan = "󱚼"
+
+if [[ $status="up" ]]; then
+    wlan="󰖩"
+
+echo "$wlan" && exit

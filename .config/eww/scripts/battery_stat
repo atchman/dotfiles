@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BAT="$(ls /sys/class/power_supply | grep BAT | head -n 1)"
+stat="$(cat /sys/class/power_supply/${BAT}/status)"
+charging=""
+
+if [[ $stat = "Charging"  ]]; then
+    charging="󱐋"
+fi
+
+󰂅
+󰂄
+
+echo "󰁹$stat" && exit

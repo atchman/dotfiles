@@ -2,21 +2,17 @@
 
 
 
-(deflisten workspace "scripts/workspace")
-
-
-
+;(deflisten workspace "scripts/workspace")
 
 
 ;; Widgets
 
-(defwidget clock []
-    
-)
-
-(defwidget workspace []
-    (literal :content workspace
-))
+;(defwidget clock []
+;)
+;
+;(defwidget workspace []
+;    (literal :content workspace
+;;))
 
 
 ;; Status Bar

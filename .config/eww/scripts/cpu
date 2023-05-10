@@ -1,4 +1,3 @@
 #!/bin/bash
 
-
-echo "" && exit
+grep -o "^[^ ]*" /proc/loadavg

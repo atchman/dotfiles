@@ -1,18 +1,124 @@
 ;; Variables
 
+(defpoll calendar_day :interval "10h"
+    "date '+%d'")
+(defpoll calendar_month :interval "10h"
+    "date '+%m'")
+(defpoll calendar_year :interval "10h"
+    "date '+%Y'")
+(defpoll battery :interval "10" 
+    "scripts/battery_stat")
+(defpoll battery-cappacity :interval "10s" 
+    "scripts/battery")
+(defpoll language :intervall "1s"
+    "scripts/keyboardlayout"
+(defpoll network :interval "1s"
+    "scripts/network"
+(defpoll hour :intervall "1s"
+    "date '+%H'")
+(defpoll min :intervall "1"
+    "date '+%M'")
 
 
-;(deflisten workspace "scripts/workspace")
+(deflisten brightness "scripts/brightness")
+(deflisten volume "scripts/volume")
+(deflisten workspace "scripts/workspace")
 
 
 ;; Widgets
 
-;(defwidget clock []
-;)
-;
-;(defwidget workspace []
-;    (literal :content workspace
-;;))
+(defwidget audio []
+)
+
+(defwidget battery []
+  (box :orientation "v"	
+       :space-evenly "false"
+  (label :class "bat"		
+		 :halign "end"		
+		 :text battery	
+		 :tooltip "Battery: ${battery-cappacity}%"))
+)
+
+(defwidget bright []
+)
+
+(defwidget cal []
+  (box :class "cal-box"
+       :orientation "h"
+  (box :class "cal-inner-box"
+  (calendar :class "call"
+            :day calendar_day
+            :month calendar_month
+            :year calendar_year
+))))
+
+(defwidget cpu []
+
+)
+
+(defwidget disk []
+
+)
+
+(defwidget ethernet []
+
+)
+
+
+(defwidget language []
+  (liveral :content language
+))
+    
+
+(defwidget memory []
+
+)
+
+(defwidget mic []
+
+)
+
+
+(defwidget network []
+    (box :class "network"
+         :orientation "h"
+         :space-evenly false
+         :halign "start"
+    (wlan)
+    (ethernet)
+))
+
+
+(defwidget time []
+  (box :class "time"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+       (button :class "time-hour" hour
+               :onclick "scripts/calendar")
+       (button :class "time-min" min
+               :onclick "scripts/calendar")
+))
+
+(defwidget temp []
+
+)
+
+(defwidget update []
+)
+
+
+(defwidget win_titel []
+    (literal :content win_title
+))
+
+(defwidget wlan []
+)
+
+(defwidget workspace []
+    (literal :content workspace
+))
+
 
 
 ;; Status Bar
@@ -21,7 +127,7 @@
          :orientation "h"
          :space-evenly false
          :halign "start"
-    "workspace"   
+    (workspace)
 ))
 
 (defwidget center []
@@ -29,7 +135,7 @@
          :orientation "h"
          :space-evenly false
          :halign "center"
-    "Windows Title"
+    (win_title)
 ))
 
 (defwidget right []
@@ -37,19 +143,19 @@
          :orientation "h"
          :space_evenly false
          :halign "end"
-    "CPU"
-    "Temp"
-    "Mem"
-    "Disk"
-    "update"
-    "Wlan/Ethernet"
-    "audio"
-    "mic"
-    "clock"
-    "calendar"
-    "language"
-    "bright"
-    "battery"
+    (cpu)
+    (temp)
+    (mem)
+    (disk)
+    (update)
+    (network)
+    (audio)
+    (mic)
+    (time)
+    (cal)
+    (language)
+    (bright)
+    (battery)
 ))
 
 (defwidget bar []
@@ -69,8 +175,8 @@
                         :height "30px"
                         :anchor "top center")
     :stacking "fg"
-;;    :reserve (struts :side "top" 
-;;                     :distance "40px")
+;;  :reserve (struts :side "top" 
+;;                   :distance "40px")
     :windowtype "dock"
     :exclusive true
     :focusable false

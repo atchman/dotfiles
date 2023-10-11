@@ -10,13 +10,13 @@
     "spacing": 4,           // Gaps between modules (4px)   
 // Choose the order of the modules
     "modules-left": [
-            "wlr/workspaces",
+            "hyprland/workspaces",
             "hyprland/mode",
             "clock"
     ],
     "modules-center": ["hyprland/window"],
     "modules-right": [
-            "tray,
+            "tray",
             "custom/weather",
             "cpu",
             "memory",
@@ -32,7 +32,7 @@
    
 // Modules configuration
     
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
@@ -62,7 +62,7 @@
     },
     
     "battery": {
-        "bat": "BAT0"
+        "bat": "BAT0",
         "states": {
             "good": 95,
             "warning": 30,
@@ -107,7 +107,7 @@
     
     "custom/weather": {
         "tooltip": true,
-        "format: "{}",
+        "format": "{}",
         "restart-interval": 300,
         "exec": "~/.config/...",
         "return-type": "json"
@@ -139,7 +139,7 @@
     
     "memory": {
         "interval": 30,
-        "format": " {}%"
+        "format": " {}%",
         "format-alt": " {used}GB",
         "max-length": 10,
         "tooltip": true,

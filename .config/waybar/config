@@ -3,21 +3,22 @@
     "position": "top",      // Waybar position (top|bottom|left|right)
     "height": 30,           // Waybar height (to be removed for auto height)
     // "width": 1280,       // Waybar width
+    "spacing": 4,           // Gaps between modules (4px)  
     "mod": "dock",
     "exclusive": true,
     "passthrough": false,
-    "gtk-layer-shell": true,
-    "spacing": 4,           // Gaps between modules (4px)   
-// Choose the order of the modules
+    "gtk-layer-shell": true,  
+// choose the order of the modules
     "modules-left": [
             "hyprland/workspaces",
-            "hyprland/mode",
-            "clock"
+            "custom/pacman",
+            "hyprland/window"
     ],
-    "modules-center": ["hyprland/window"],
+    "modules-center": ["clock"],
     "modules-right": [
             "tray",
-            "custom/weather",
+            //"custom/weather",
+            "hyprland/language",
             "cpu",
             "memory",
             "temperature",
@@ -28,10 +29,8 @@
             "battery"
     ],
 
-//    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
-   
+
 // Modules configuration
-    
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -52,21 +51,21 @@
             "default": ""
         }
     },
-    
+
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-scroll-down": "brightnessctl -c backlight set 1%-",
-        "on-scroll-up": "brightnessctl -c backlight set +1%"
+        // "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        // "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
     
     "battery": {
         "bat": "BAT0",
         "states": {
-            "good": 95,
+            // "good": 95,
             "warning": 30,
-            "critical": 17
+            "critical": 15
         },
         "format": "{icon} {capacity}% ",
         "format-charging": " {capacity}%",
@@ -108,17 +107,30 @@
     "custom/weather": {
         "tooltip": true,
         "format": "{}",
-        "restart-interval": 300,
-        "exec": "~/.config/...",
+        "restart-interval": 3600,
+        "exec": "~/.config/waybar/scripts/gweather.sh",
         "return-type": "json"
+    },
+
+    "custom/pacman": {
+    "format": "{}  ",
+    "interval": "once",
+    "exec": "pacman_packages",
+    "signal": 8
     },
     
     "cpu": {
         "interval": 10,
         "format": " {usage}%",
+        "format-alt": "󰻠 {avg_frequency} GHz",
         "tooltip": false
     },
-    
+
+    "hyprland/language": {
+    "format": "Lang: {}",
+    "keyboard-name": "at-translated-set-2-keyboard"
+    },
+
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>",
         "tooltip": false
@@ -174,7 +186,7 @@
     },
     
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "interface": "wlan0",
         "interval": 5,
         "format-wifi": " {essid}",
         "format-ethernet": "",

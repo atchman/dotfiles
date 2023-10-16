@@ -1,40 +1,39 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
     border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 0;
 }
+
+#window {
+    background: #FFFFFF;
+    margin: 5px 15px 5px 0px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 12px;
+    color:@background;
+    font-size:16px;
+    font-weight:normal;
+    opacity:0.8;
+}
+
 
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
     background: transparent;
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #ffffff;
+    /* color: #ffffff; */
     transition-property: background-color;
     transition-duration: .5s;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
 
-/*
-window#waybar.empty {
+window#waybar.empty #window {
     background-color: transparent;
 }
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -51,7 +50,25 @@ button:hover {
 }
 
 
+#workspaces {
+    background: #FFFFFF;
+    margin: 2px 1px 3px 1px;
+    padding: 0px 1px;
+    border-radius: 15px;
+    border: 0px;
+    font-weight: bold;
+    font-style: normal;
+    opacity: 0.8;
+    /* font-size: 16; */
+}
+
 #workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button.active {
     padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
@@ -69,6 +86,16 @@ button:hover {
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
+
+
+tooltip {
+
+}
+
+tooltip label{
+    
+}
+
 
 #mode {
     background-color: #64727D;
@@ -90,17 +117,12 @@ button:hover {
 #pulseaudio,
 #scratchpad,
 #temperature,
-#tray,
 #wireplumber {
     padding-left: 10px;
     padding-right: 10px;
     color: #ffffff;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
-}
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
@@ -118,7 +140,12 @@ button:hover {
 
 #battery {
     background-color: #ffffff;
+    font-size: 16px;
     color: #000000;
+    border-radius: 15px;
+    padding: 2px 15px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
 }
 
 #battery.charging, #battery.plugged {
@@ -147,6 +174,7 @@ label:focus {
     background-color: #000000;
 }
 
+
 #cpu {
     background-color: #2ecc71;
     color: #000000;
@@ -162,15 +190,39 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
+    
+    
 }
 
+
+
 #network {
-    background-color: #2980b9;
+    background-color: #FFFFFF;
+    color: #2980b9;
+    font-size: 16px;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 3px 10px 3px 0px;
+    opacity:0.8;
+    border: 3px solid #FFFFFF
+}
+
+#network.ethernet {
+    background-color: @color11;
+    color:#FFFFFF;
+}
+
+#network.wifi {
+    background-color: @color11;
+    color:#FFFFFF;
 }
 
 #network.disconnected {
     background-color: #f53c3c;
 }
+
+
+
 
 #pulseaudio {
     background-color: #f1c40f;
@@ -213,6 +265,7 @@ label:focus {
     background-color: #eb4d4b;
 }
 
+
 #tray {
     background-color: #2980b9;
 }
@@ -225,6 +278,7 @@ label:focus {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
+
 
 #idle_inhibitor {
     background-color: #2d3436;

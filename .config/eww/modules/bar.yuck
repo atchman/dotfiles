@@ -1,0 +1,8 @@
+(defwidget bar []
+    (box :class "statusbar"
+         :orientation "h"
+    (left)
+    (center)
+    (right)
+    )
+)

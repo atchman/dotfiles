@@ -1,18 +1,25 @@
 clock
 timestr=%R
 datestr=%a, %e of %B
+
+daemonize
 effect-blur=20x6
 # effect-greyscale
 # effect-pixelate=5
 fade-in=1
 font="JetBrains Mono"
+#font-size=16
 ignore-empty-password
 # indicator
-# indicator-radius=200
+# indicator-idle-visible
+# indicator-radius=120
 # indicator-thickness=20
 indicator-caps-lock
 # image=
 # screenshots
+# show-failed-attempts
+# show-keyboard-layout
+
 
 # Define all colors
 key-hl-color=00000066

@@ -236,7 +236,11 @@ bar {
 	strip_workspace_numbers yes
 	#font pango:monospace 8
     #font xft:Hack Nerd Font, FontAwesome 8
-	separator_symbol "󰇝" 
+	separator_symbol "󰇝"
+    bindsym button4 nop
+    bindsym button5 nop
+    bindsym button6 nop
+    bindsym button7 nop
 }
 
 

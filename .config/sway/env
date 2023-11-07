@@ -1,0 +1,24 @@
+#!/bin/sh 
+
+export TERMINAL="foot" 
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+
+export GDK_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct
+# export QT_QPA_PLATFORMTHEME=kvantum
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+export WLR_RENDERER=vulkan
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland  
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+### GTK_THEME= 
+# export XCURSOR_THEME,Tokyo Night     # Gruvbox Dark, Catppucin Latte
+export XCURSOR_SIZE=24

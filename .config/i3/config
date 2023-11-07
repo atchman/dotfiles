@@ -258,6 +258,7 @@ bindsym $mod+shift+x exec betterlockscreen -l dim
 # Feste Zuweisungen bei bestimmte Programm, z.B workspace, layout, ...
 
 assign [class="Brave-browser"] workspace $ws1
+assign [class="LibreWolf"] workspace $ws1
 assign [class="Element"] workspace $ws8
 assign [class="thunderbird"] workspace $ws9
 assign [class="WebCord"] workspace $ws6

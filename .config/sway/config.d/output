@@ -1,8 +1,16 @@
 # output
 
 #swaymsg -t get_outputs
+#swaymsg -- output eDP-1 mode --custom 1920x1080@59.96Hz scale 1
 output * {
-   resolution 1920x1080 
-   position 0,0
-   background ~/.config/hypr/black-white-tree-grave.jpg fill
+    # resolution 1920x1080
+    mode --custom 1920x1080
+    # 1920x1080@59.96 Hz
+    # modeline 172.68  1920 2040 2248 2576  1080 1081 1084 1118 -hsync +vsync
+    # 1920x1080@60 Hz
+    # modeline 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+    
+    position 0,0
+    scale 1
+    background ~/.config/hypr/black-white-tree-grave.jpg fill
 }

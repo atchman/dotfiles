@@ -7,11 +7,11 @@ exec ~/.config/sway/config.d/env
 include /etc/sway/config.d/*
 
 
-include ~/.config/sway/config.d/output
-include ~/.config/sway/config.d/input
-include ~/.config/sway/config.d/keybinds
-include ~/.config/sway/config.d/windowsrules
-include ~/.config/sway/config.d/exec
+include /home/atchman/.config/sway/config.d/output
+include /home/atchman/.config/sway/config.d/input
+include /home/atchman/.config/sway/config.d/keybinds
+include /home/atchman/.config/sway/config.d/windowsrules
+include /home/atchman/.config/sway/config.d/exec
 
 
 font xft:JetBrainsMono Nerd Font 13

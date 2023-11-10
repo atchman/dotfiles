@@ -212,12 +212,10 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": true,
-        "tooltip-format": "{icon} {volume}% {desc} | {format_source}",
+        "tooltip-format": "{icon} {volume}% {desc}",
         "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-bluetooth-muted": "{icon}  {format_source}",
         "format-muted": "󰝟",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
         "format-icons": {
             "headphone": "󰋋",
             "hands-free": "󰥰",
@@ -227,7 +225,8 @@
             "car": "󰄋",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol -t 3",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +10%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -10%",
         "scroll-step": 10,   // %, can be a float
@@ -235,27 +234,27 @@
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭 Muted",
-        // "on-click": "pamixer --default-source -t",
-        // "on-scroll-up": "pamixer --default-source -i 5",
-        // "on-scroll-down": "pamixer --default-source -d 5",
-        // "scroll-step": 5
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click-right": "pavucontrol -t 4",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
       },
 
 
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        "format-critical": "{icon} {temperatureC}°C",
+        "thermal-zone": "/sys/class/thermal/thermal_zone8/temp",
+        "critical-threshold": 90,
+        "interval": 10,
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""],
+        "format-critical": "{icon} {temperatureC}°C"
     },
     
+
     "tray": {
-        "icon-size": 13,
-        "tooltip": false,
+        "icon-size": 21,
         "spacing": 10
     }
 

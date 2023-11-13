@@ -1,25 +1,31 @@
+/* zumthor, light gray-white*/
 @define-color foreground #d1d6d7;
+/* black pearl */
 @define-color background #0f1214;
 @define-color cursor #d1d6d7;
 
-@define-color color0 #0f1214;
-@define-color color1 #0f1214;
-@define-color color2 #7FA09D;
-@define-color color3 #8A9796;
-@define-color color4 #90A09D;
-@define-color color5 #96A9A8;
-@define-color color6 #AAB5B6;
-@define-color color7 #d1d6d7;
-@define-color color8 #929596;
-@define-color color9 #778C8B;
-@define-color color10 #7FA09D;
-@define-color color11 #8A9796;
-@define-color color12 #90A09D;
-@define-color color13 #96A9A8;
-@define-color color14 #AAB5B6;
-@define-color color15 #d1d6d7;
-/* red for critical*/
-@define-color color16 #dc143c; 
+
+/* submarine */
+@define-color color1 #7FA09D;
+/* remy, light beige */
+@define-color color2 #f5e0dc;
+/* mauve, light purple */
+@define-color color3 #cba6f7;
+/* maya blue */
+@define-color color4 #89b4fa;
+/* moss green */
+@define-color color5 #a6e3a1;
+/* Cotton Seed, light gray */
+@define-color color6 #b3b1ad;
+/* coral red */
+@define-color color7 #f53c3c;
+/* whisper, white */
+@define-color color8 #d1d6d7;
+/* crimson, red */
+@define-color color9 #dc143c;
+/* macaroni and cheese, orange-beige*/
+@define-color color10 #fab387;
+
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */ 
@@ -32,7 +38,7 @@
 
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: @background;
 }
 
 
@@ -47,7 +53,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px color8;
 }
 
 
@@ -93,24 +99,26 @@ tooltip label{
     color: @foreground;
 }
 
+#battery.urgent:not(.charging) {
+    color: @color10;
+}
+#battery.critical:not(.charging) {
+    color: @color7;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 
 #custom-weather,
 #clock {
     background-color: @background;
-	  font-size: 19px;
+	font-size: 19px;
     color: @foreground;
 }
 
-#custom-weather,
-#clock,
-#custom-logo {
-    color: @foreground;
-
-}
-
-#custom-micro {
-    font-size: 20px;
-}
 
 #custom-weather {
     margin-left: 7.5px;
@@ -131,13 +139,12 @@ tooltip label{
 
 
 #temperature.critical {
-    color: @color16;
+    color: @color7;
 }
 
 
 #workspaces button.urgent {
-
-    background-color: #eb4d4b;
+    background-color: @color7;
 }
 
 

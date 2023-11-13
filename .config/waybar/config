@@ -119,7 +119,7 @@
     "custom/pacman": {
     "format": "{} 󰣇",
     "interval": "once",
-    "exec": "pacman_packages",
+    "exec": "checkupdates | wc -l",
     "signal": 8
     },
     
@@ -144,7 +144,7 @@
     
     "hyprland/window": {
         "format": "{}",
-        "max-length": 120
+        "max-length": 40
     },
     
 
@@ -204,8 +204,7 @@
         "tooltip-format-wifi": "({signalStrength}%)  |  {bandwidthUpBytes}  {bandwidthDownBytes} | {ifname}: {ipaddr}/{cidr}",
         "tooltip-format-ethernet": "{ifname}  |  {bandwidthUpBytes}  {bandwidthDownBytes} | {ipaddr}/{cidr} 󰩟",
         "format-linked": "󱘖 {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "on-click": "hyprctl dispatch exec" ,
+        "format-disconnected": "⚠ Disconnected"
     },
     
 
@@ -213,9 +212,9 @@
         "format": "{icon} {volume}%",
         "tooltip": true,
         "tooltip-format": "{icon} {volume}% {desc}",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "{icon}  {format_source}",
-        "format-muted": "󰝟",
+        // "format-bluetooth": "{icon} {volume}%",
+        // "format-bluetooth-muted": "{icon}  {format_source}",
+        "format-muted": "󰝟 Muted",
         "format-icons": {
             "headphone": "󰋋",
             "hands-free": "󰥰",
@@ -227,24 +226,25 @@
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol -t 3",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +10%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -10%",
-        "scroll-step": 10,   // %, can be a float
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "scroll-step": 5
         
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": " Muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
         "on-click-right": "pavucontrol -t 4",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
       },
 
 
     "temperature": {
-        "thermal-zone": "/sys/class/thermal/thermal_zone8/temp",
+        "thermal-zone": "8",
         "critical-threshold": 90,
         "interval": 10,
         "format": "{icon} {temperatureC}°C",

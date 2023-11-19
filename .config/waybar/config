@@ -37,16 +37,16 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "1": "󰈹 ",
-            "2": " ",
-            "3": "󰋜 ",
-            "4": "󰌽 ",
-            "5": "󰮂 ",
-            "6": " ",
-            "7": "󰙯 ",
-            "8": "󰭹 ",
-            "9": " ",
-            "0": "󰛤 ",
+            "1": "󰈹",
+            "2": "",
+            "3": "󰋜",
+            "4": "󰌽",
+            "5": "󰮂",
+            "6": "",
+            "7": "󰙯",
+            "8": "󰭹",
+            "9": "",
+            "0": "󰛤",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -64,9 +64,9 @@
     "battery": {
         "bat": "BAT0",
         "states": {
-            // "good": 95,
+            // "good": 90,
             "warning": 30,
-            "critical": 15
+            "critical": 17
         },
         "format": "{icon} {capacity}% ",
         "format-charging": "󰂄 {capacity}%",
@@ -74,36 +74,35 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󰁹"]
+        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "󱐥 {power} W\r{timeTo}"
     },
     
 
     "clock": {
         "timezone": "Europe/Berlin",
-        "format": "{:%T}",
-        "format-alt": "{: %H:%M |  %a, %d. %b %Y}",
+        "locale": "de_DE.UTF-8",
+        "format": " {:%H:%M}",
+        "format-alt": " {:%a, %d. %b %Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
-                    "mode"          : "year",
+                    "mode"          : "month",
                     "mode-mon-col"  : 3,
                     "weeks-pos"     : "right",
                     "on-scroll"     : 1,
                     "on-click-right": "mode",
                     "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              "months":     "<span color='#fafafa'><b>{}</b></span>",
+                              "days":       "<span color='#fecaca'><b>{}</b></span>",
+                              "weeks":      "<span color='#14b8a6'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#fbbf24'><b>{}</b></span>",
+                              "today":      "<span color='#e11d48'><b><u>{}</u></b></span>"
                               }
         },
         "actions": {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-        } 
+                    "on-click-right": "mode"
+        }
     },
     
 
@@ -129,7 +128,7 @@
         "format": " {usage}%",
         //"format-alt": "󰻠 {avg_frequency} GHz",
         "tooltip": true,
-        "tooltip-format": " {avg_frequency:0.2f}GHz/{total:0.1f}GB"
+        "tooltip-format": " {avg_frequency:0.2f}GHz/{total:0.2f}GB"
     },
 
 
@@ -199,12 +198,12 @@
     "network": {
         // "interface": "wlan0",
         "interval": 5,
-        "format-wifi": " {essid}",
+        "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 ",
         "tooltip-format": "{ifname} via {gwaddr} 󰩟",
-        "tooltip-format-wifi": "({signalStrength}%)  |  {bandwidthUpBytes}  {bandwidthDownBytes} | {ifname}: {ipaddr}/{cidr}",
-        "tooltip-format-ethernet": "{ifname}  |  {bandwidthUpBytes}  {bandwidthDownBytes} | {ipaddr}/{cidr} 󰩟",
-        "format-linked": "󱘖 {ifname} (No IP)",
+        "tooltip-format-wifi": "  SSID: {essid}\rNI: {ifname}\r󰢽 {signalStrength} %\r󰢽 {signaldBm} dBm\r󱑽 {frequency} MHz\r {bandwidthUpBytes}\r {bandwidthDownBytes}\r󰩟 {ipaddr}\rCIDR /{cidr}\r󰠥 {netmask}\rGW-󰩟 {gwaddr}",
+        "tooltip-format-ethernet": " {ifname}\r {bandwidthUpBytes}\r {bandwidthDownBytes}\r󰩟 {ipaddr}i\rCIDR /{cidr}\r󰠥 {netmask}\rGW-󰩟 {gwaddr}",
+        "format-linked": "󱘖 {ifname} | No IP",
         "format-disconnected": "⚠ Disconnected"
     },
     

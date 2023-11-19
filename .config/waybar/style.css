@@ -1,12 +1,30 @@
-/* zumthor, light gray-white*/
-@define-color foreground #d1d6d7;
-/* black pearl */
-@define-color background #0f1214;
+/*
+colors from:
+https://tailwindcss.com/docs/customizing-colors
+
+neitral 950 background
+neutral 50  foreground
+
+sky 500     blue
+red 600     red
+amber 400   yellow
+violet 400  violet
+pink 300    pink-light
+orange 300  orange
+
+*/
+
+@define-color background #0a0a0a;
+@define-color foreground #fafafa;
 @define-color cursor #d1d6d7;
 
+@define-color blue #0ea5e9;
+@define-color red #dc2626;
+@define-color yellow #fbbf24;
+@define-color violet #a78bfa;
+@define-color pink-light #f9a8d4;
+@define-color orange #fdba74;
 
-/* submarine */
-@define-color color1 #7FA09D;
 /* remy, light beige */
 @define-color color2 #f5e0dc;
 /* mauve, light purple */
@@ -28,16 +46,16 @@
 
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */ 
+    /*all: unset;*/
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
+    font-weight: 800;
     font-size: 17px;
 }
 
 
 window#waybar {
-    background-color: transparent;
-    /*@background;*/
+    background: rgba(15, 18, 20, 0.3);
+    /*linear-gradient(#9ca3af, #d1d5db);*/
 }
 
 
@@ -51,8 +69,8 @@ button {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px @color8;
+   /* background: inherit;*/
+    box-shadow: inset 0 -3px @pink-light;
 }
 
 
@@ -63,9 +81,24 @@ tooltip {
 }
 
 tooltip label{
+    margin: 7px 7px;
+    padding: 5px 5px;
+    background-color: @background;
     color: @foreground;
 }
 
+
+@keyframes blinker_critical {
+    to {
+        opacity: 0;
+    }  
+}
+
+@keyframes blinker_warning {
+    to { 
+        opacity: 0; 
+    }
+}
 
 
 #backlight,
@@ -88,21 +121,27 @@ tooltip label{
 #tray,
 #window,
 #wireplumber,
-#workspaces,
-#workspaces button {
-    border-radius: 9px;
+#workspaces {
     background-color: @background;
-    padding: 2px 12.5px;
-    margin: 0px 0px;
     color: @foreground;
+    border-radius: 7px;
+    padding: 2px 12px;
+    margin: 0px 0px;
 }
 
+
 #battery.warning:not(.charging) {
-    color: @color10;
+    color: @yellow;
+    animation-name: blinker_warning;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
+
 #battery.critical:not(.charging) {
-    color: @color7;
-    animation-name: blink;
+    color: @red;
+    animation-name: blinker_critical;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -110,11 +149,10 @@ tooltip label{
 }
 
 
-#custom-weather,
 #clock {
-    background-color: @background;
-	font-size: 19px;
-    color: @foreground;
+    background-color: @orange;
+	font-size: 20px;
+    color: @background;
 }
 
 
@@ -132,31 +170,46 @@ tooltip label{
 
 
 #tray {
+    background-color: @background;
     color: @color2;
 }
 
 
 #temperature.critical {
     color: @color7;
+    animation-name: blinker_critical;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
+#workspaces button {
+    padding: 0px 9px 0px 5px;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    background-color: @violet;
+    color: @background;
+}
 
 #workspaces button.urgent {
-    background-color: @color7;
+    background-color: @yellow;
 }
-
 
 
 /* leftmost module, omit left margin */
 .modules-left > widget:first-child > #custom-pacman {
     margin-left: 0;
-    padding-right: 12.5px;
+    padding-right: 12px;
     border-radius: 0px 7px 7px 0px; 
 }
 
 /* rightmost module, omit right margin */
 .modules-right > widget:last-child > #battery {
     margin-right: 0;
-    padding-left: 12.5px;
+    padding-left: 12px;
     border-radius: 7px 0px 0px 7px;
 }
+

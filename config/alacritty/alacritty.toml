@@ -1,0 +1,24 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+# https://alacritty.org/config-alacritty.html
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
+[window]
+opacity = 0.9
+startup_mode = "Windowed"
+dynamic_title = true
+
+[scrolling]
+history = 5000
+
+[font]:
+# Default
+# normal = { family = "monospace", style = "Regular" }
+
+normal = { family = "JetBrainsMono NFM", style = "Regular" }
+# bold = { family = "monospace" , style = "Bold" }
+# italic = { family = "monospace", style = "Italic" } 
+# bold_italic = { family = "monospace" ,style = "Bold Italic" }
+size = 15.0
+

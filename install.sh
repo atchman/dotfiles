@@ -3,52 +3,82 @@
 
 PATHDOT = $(pwd)
 
+############################################################
 # home directory
-ln -sf $PATHDOT/.bash_aliases $HOME/.bash_aliases
-ln -sf $PATHDOT/.bash_logout $HOME/.bash_profile
-ln -sf $PATHDOT/.bash_profile $HOME/.bash_profile
+ln -sf $PATHDOT/home/.bash_aliases $HOME/.bash_aliases
+ln -sf $PATHDOT/home/.bash_logout $HOME/.bash_profile
+ln -sf $PATHDOT/home/.bash_profile $HOME/.bash_profile
 
 
+###########################################################
+# firefox
+[ ! -d $HOME/.var/app/org.mozilla.firefox/.mozilla/firefox/ ]  
+ln -sf ~/git/dotfiles/firefox/chrome/userChrome.css ~/.var/app/org.mozilla.firefox/.mozilla/firefox/
+
+
+###########################################################
 # config directory
 [ ! -d $HOME/.config ] && mkdir $HOME/.config
 
-[ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
-ln -sf $PATHDOT/.config/alacritty $HOME/.config/alacritty
+[ -d $HOME/.config/alacritty ] && mkdir $HOME/.config/alacritty
+ln -sf $PATHDOT/config/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
 
-[ -d $HOME/.config/dunst ] && rm -rf $HOME/.config/dunst
-ln -sf $PATHDOT/.config/dunst $HOME/.config/dunst
+[ -d $HOME/.config/dunst ] && mkdir $HOME/.config/dunst
+ln -sf $PATHDOT/config/dunst/dunstrc $HOME/.config/dunst/
 
 #[ ! -d $HOME/.config/eww ] && mkdir $HOME/.config/eww
-ln -sf $PATHDOT/.config/eww ] && mkdir $HOME/.config/eww
+ln -sf $PATHDOT/config/eww ] && mkdir $HOME/.config/eww
 
-#[ ! -d $HOME/.config/foot ] && mkdir $HOME/.config/foot
-ln -sf $PATHDOT/.config/foot $HOME/.config/foot
+[ ! -d $HOME/.config/foot ] && mkdir $HOME/.config/foot
+ln -sf $PATHDOT/config/foot/foot.ini $HOME/.config/foot
 
-#[ ! -d $HOME/.config/fuzzel ] && mkdir $HOME/.config/fuzzel
-ln -sf $PATHDOT/.config/fuzzel $HOME/.config/fuzzel
+[ ! -d $HOME/.config/fuzzel ] && mkdir $HOME/.config/fuzzel
+ln -sf $PATHDOT/config/fuzzel/fuzzel.ini $HOME/.config/fuzzel
 
 #[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
-ln -sf $PATHDOT/.config/hypr $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr $HOME/.config/hypr
 
 #[ ! -d $HOME/.config/i3 ] && mkdir $HOME/.config/i3
-n -sf $PATHDOT/.config/i3 $HOME/.config/i3
+n -sf $PATHDOT/config/i3 $HOME/.config/i3
 
 #[ ! -d $HOME/.config/i3status ] && mkdir $HOME/.config/i3status
-ln -sf $PATHDOT/.config/i3status $HOME/.config/i3status
+ln -sf $PATHDOT/config/i3status $HOME/.config/i3status
 
 #[ ! -d $HOME/.config/mako ] && mkdir $HOME/.config/mako
-ln -sf $PATHDOT/.config/mako $HOME/.config/mako
+ln -sf $PATHDOT/config/mako $HOME/.config/mako
+
+[ ! -d $HOME/.config/MangoHud ] && mkdir $HOME/.config/MangoHud
+ln -sf $PATHDOT/config/MangoHud/MangoHud.conf $HOME/.config/MangoHud/MangoHud.conf
+ln -sf $PATHDOT/config/MangoHud/dauntless-win64-shipping.conf $HOME/.config/MangoHud/dauntless-win64-shipping.conf
+ln -sf $PATHDOT/config/MangoHud/heroic.conf $HOME/.config/MangoHud/heroic.conf
+ln -sf $PATHDOT/config/MangoHud/MangoHud.conf $HOME/.config/MangoHud/MangoHud.conf
+ln -sf $PATHDOT/config/MangoHud/steam.conf $HOME/.config/MangoHud/steam.conf
+ln -sf $PATHDOT/config/MangoHud/valheim.x86_64.conf $HOME/.config/MangoHud/valheim.x86_64.conf
+ln -sf $PATHDOT/config/MangoHud/xivlauncher.conf $HOME/.config/MangoHud/xivlauncher.conf
 
 #[ ! -d $HOME/.config/rofi ] && mkdir $HOME/.config/rofi
-ln -sf $PATHDOT/.config/rofi $HOME/.config/rofi
+ln -sf $PATHDOT/config/rofi $HOME/.config/rofi
 
 #[ ! -d $HOME/.config/sway ] && mkdir $HOME/.config/sway
-ln -sf $PATHDOT/.config/sway $HOME/.config/sway
+ln -sf $PATHDOT/config/sway $HOME/.config/sway
+
+[ ! -d $HOME/.config/swayidle ] && mkdir $HOME/.config/swayidle
+ln -sf $PATHDOT/config/swayidle/config $HOME/.config/swayidle/config
 
 #[ ! -d $HOME/.config/swaylock ] && mkdir $HOME/.config/swaylock
-ln -sf $PATHDOT/.config/swaylock $HOME/.config/swaylock
+ln -sf $PATHDOT/config/swaylock $HOME/.config/swaylock
+
+# XDG user directories
+ln -sf $PATHDOT/config/user-dirs.dirs $HOME/.config
+ln -sf $PATHDOT/config/user-dirs.locale $HOME/.config
 
 #[ ! -d $HOME/.config/waybar ] && mkdir $HOME/.config/waybar
-ln -sf $PATHDOT/.config/waybar $HOME/.config/waybar
+ln -sf $PATHDOT/config/waybar $HOME/.config/waybar
 
+
+###########################################################
+# local/bin
+[ ! -d $HOME/.local/bin/scripts ] && mkdir -p $HOME/.local/bin/scripts
+
+ln -sf $PATHDOT/local/bin/scripts/xdg-portal.sh $HOME/.local/bin/scripts
 

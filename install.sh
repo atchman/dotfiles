@@ -35,14 +35,17 @@ ln -sf $PATHDOT/config/foot/foot.ini $HOME/.config/foot
 [ ! -d $HOME/.config/fuzzel ] && mkdir $HOME/.config/fuzzel
 ln -sf $PATHDOT/config/fuzzel/fuzzel.ini $HOME/.config/fuzzel
 
+[ ! -d $HOME/.config/git ] && mkdir $HOME/.config/git
+ln -sf $PATHDOT/config/git/ignore $HOME/.config/git
+
 #[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
 ln -sf $PATHDOT/config/hypr $HOME/.config/hypr
 
-#[ ! -d $HOME/.config/i3 ] && mkdir $HOME/.config/i3
-n -sf $PATHDOT/config/i3 $HOME/.config/i3
+[ ! -d $HOME/.config/i3 ] && mkdir $HOME/.config/i3
+ln -sf $PATHDOT/config/i3/config $HOME/.config/i3
 
-#[ ! -d $HOME/.config/i3status ] && mkdir $HOME/.config/i3status
-ln -sf $PATHDOT/config/i3status $HOME/.config/i3status
+[ ! -d $HOME/.config/i3status ] && mkdir $HOME/.config/i3status
+ln -sf $PATHDOT/config/i3status/config $HOME/.config/i3status
 
 #[ ! -d $HOME/.config/mako ] && mkdir $HOME/.config/mako
 ln -sf $PATHDOT/config/mako $HOME/.config/mako

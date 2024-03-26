@@ -12,11 +12,12 @@
     "modules-left": [
             "custom/pacman",
             "hyprland/workspaces",
-            "hyprland/window"
+            "hyprland/window",
+            "tray"
     ],
     "modules-center": ["clock"],
     "modules-right": [
-            "tray",
+            //"tray",
             //"custom/weather",
             "cpu",
             "memory",
@@ -144,7 +145,7 @@
     
     "hyprland/window": {
         "format": "{}",
-        "max-length": 40
+        "max-length": 25
     },
     
 

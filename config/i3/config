@@ -57,13 +57,13 @@ exec --no-startup-id nitrogen --restore
 #exec --no-startup-id /usr/bin/snapshot-detect
 #
 #exec --no-startup-id mullvad-vpn
-exec --no-startup-id brave 
-exec --no-startup-id thunderbird
-exec --no-startup-id element-desktop
-exec --no-startup-id keepassxc
+#exec --no-startup-id brave 
+#exec --no-startup-id thunderbird
+#exec --no-startup-id element-desktop
+#exec --no-startup-id keepassxc
 #exec --no-startup-id nextcloud
 
-exec --no-startup-id i3-msg "workspace $ws2; exec alacritty;"
+#exec --no-startup-id i3-msg "workspace $ws2; exec alacritty;"
 #exec --no-startup-id i3-msg "workspace $ws0; exec alacritty -e btm;" 
 
 #############################################################################
@@ -80,7 +80,7 @@ exec --no-startup-id i3-msg "workspace $ws2; exec alacritty;"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -258,10 +258,10 @@ bindsym $mod+shift+x exec betterlockscreen -l dim
 # Feste Zuweisungen bei bestimmte Programm, z.B workspace, layout, ...
 
 assign [class="Brave-browser"] workspace $ws1
-assign [class="LibreWolf"] workspace $ws1
-assign [class="Element"] workspace $ws8
-assign [class="thunderbird"] workspace $ws9
-assign [class="WebCord"] workspace $ws6
+#assign [class="LibreWolf"] workspace $ws1
+#assign [class="Element"] workspace $ws8
+#assign [class="thunderbird"] workspace $ws9
+#assign [class="WebCord"] workspace $ws6
 assign [class="KeePassXC"] workspace $ws7
 assign [class="Gnucash"] workspace $ws3
 assign [class="Portfolio Performance"] workspace $ws3

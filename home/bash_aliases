@@ -11,9 +11,11 @@
 # fi 
 #
 
+alias startw="~/.local/bin/scripts/startw.sh"
 
 alias n="nvim"
 alias N="sudo nvim"
+alias NF="cd ~/git/nvim-config"
 alias g="cd ~/git" 
 alias grubc="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias grubi="sudo grub-install"
@@ -22,8 +24,5 @@ alias fu="flatpak update"
 
 alias mr="mullvad reconnect"
 
-alias commands="nvim ~/Documents/docs/commands"
-alias dotfiles="/sbin/git -C ~/git/dotfiles"
 alias DF="cd ~/git/dotfiles"
 
-alias todo="nvim ~/Documents/docs/todo"

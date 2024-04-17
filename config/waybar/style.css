@@ -168,6 +168,9 @@ tooltip label{
 
 }
 
+#network.disconnected {
+    color: @red;
+}
 
 #tray {
     background-color: @background;

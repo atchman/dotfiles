@@ -21,13 +21,19 @@ ln -sf ~/git/dotfiles/firefox/chrome/userChrome.css ~/.var/app/org.mozilla.firef
 [ ! -d $HOME/.config ] && mkdir $HOME/.config
 
 [ -d $HOME/.config/alacritty ] && mkdir $HOME/.config/alacritty
-ln -sf $PATHDOT/config/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml
+ln -sf $PATHDOT/config/alacritty/alacritty.toml $HOME/.config/alacritty
+
+[ -d $HOME/.config/bottom ] && mkdir $HOME/.config/bottom
+ln -sf $PATHDOT/config/bottom/bottom.toml $HOME/.config/bottom
 
 [ -d $HOME/.config/dunst ] && mkdir $HOME/.config/dunst
 ln -sf $PATHDOT/config/dunst/dunstrc $HOME/.config/dunst/
 
-#[ ! -d $HOME/.config/eww ] && mkdir $HOME/.config/eww
-ln -sf $PATHDOT/config/eww ] && mkdir $HOME/.config/eww
+[ ! -d $HOME/.config/eww ] && mkdir $HOME/.config/eww
+ln -sf $PATHDOT/config/eww/eww.yuck ] && mkdir $HOME/.config/eww
+ln -sf $PATHDOT/config/eww/eww.scss ] && mkdir $HOME/.config/eww
+ln -sf $PATHDOT/config/eww/variables.yuck ] && mkdir $HOME/.config/eww
+ln -sf $PATHDOT/config/eww/windows.yuck ] && mkdir $HOME/.config/eww
 
 [ ! -d $HOME/.config/foot ] && mkdir $HOME/.config/foot
 ln -sf $PATHDOT/config/foot/foot.ini $HOME/.config/foot
@@ -37,6 +43,9 @@ ln -sf $PATHDOT/config/fuzzel/fuzzel.ini $HOME/.config/fuzzel
 
 [ ! -d $HOME/.config/git ] && mkdir $HOME/.config/git
 ln -sf $PATHDOT/config/git/ignore $HOME/.config/git
+
+[ ! -d $HOME/.config/gitui ] && mkdir $HOME/.config/gitui
+ln -sf $PATHDOT/config/gitui/theme.ron $HOME/.config/gitui
 
 #[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
 ln -sf $PATHDOT/config/hypr $HOME/.config/hypr
@@ -59,6 +68,10 @@ ln -sf $PATHDOT/config/MangoHud/steam.conf $HOME/.config/MangoHud/steam.conf
 ln -sf $PATHDOT/config/MangoHud/valheim.x86_64.conf $HOME/.config/MangoHud/valheim.x86_64.conf
 ln -sf $PATHDOT/config/MangoHud/xivlauncher.conf $HOME/.config/MangoHud/xivlauncher.conf
 
+[ ! -d $HOME/.config/nvim ] && mkdir $HOME/.config/nvim
+echo "manuell connecting nvim-config in ~/.config"
+#ln -sf ~/git/nvim-config $HOME/.config/nvim
+
 #[ ! -d $HOME/.config/rofi ] && mkdir $HOME/.config/rofi
 ln -sf $PATHDOT/config/rofi $HOME/.config/rofi
 
@@ -78,6 +91,8 @@ ln -sf $PATHDOT/config/user-dirs.locale $HOME/.config
 #[ ! -d $HOME/.config/waybar ] && mkdir $HOME/.config/waybar
 ln -sf $PATHDOT/config/waybar $HOME/.config/waybar
 
+#[ ! -d $HOME/.config/zellij ] && mkdir $HOME/.config/zellij
+ln -sf $PATHDOT/config/zellij/zellij.kdl $HOME/.config/zellij/zellij.kdl
 
 ###########################################################
 # local/bin

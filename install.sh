@@ -50,6 +50,15 @@ ln -sf $PATHDOT/config/gitui/theme.ron $HOME/.config/gitui
 #[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
 ln -sf $PATHDOT/config/hypr $HOME/.config/hypr
 
+#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr/hyprpaper $HOME/.config/hypr/hyprpaper
+
+#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr/hypridle $HOME/.config/hypr/hypridle
+
+#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr/hyprlock $HOME/.config/hypr/hyprlock
+
 [ ! -d $HOME/.config/i3 ] && mkdir $HOME/.config/i3
 ln -sf $PATHDOT/config/i3/config $HOME/.config/i3
 

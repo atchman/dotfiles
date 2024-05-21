@@ -11,7 +11,7 @@
 # fi 
 #
 
-alias startw="~/.local/bin/scripts/startw.sh"
+alias startw="~/.local/bin/startw.sh"
 
 alias n="nvim"
 alias N="sudo nvim"

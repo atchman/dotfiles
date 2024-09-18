@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+OPTIND=1
+
+help() {
+    echo "maintain"
+    echo
+    echo "a -> arch"
+    echo "f -> flatpak"
+    echo "n -> nix"
+    echo "h -> help"
+    echo 
+}
+
+arch() {
+    sudo pacman -Syu
+    yay --aur
+}
+
+flatpak() {
+    flatpak update
+    flatpak remove --unused
+}
+
+nix() {
+    echo
+}
+
+while test "$#" -gt 0; do
+    case "$1" in 
+    a)  arch
+	exit;;
+    f)  flatpak
+        exit;;
+    n)  nix
+    	exit;;
+    h|*)    
+        help
+    	exit;;
+    esac
+    shift
+done
+
+exit 0
+
+
+

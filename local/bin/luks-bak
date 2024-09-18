@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [ ! -b "$1" ]; then
+    echo "$0 [disk]"
+    exit 1
+fi
+
+DISK="$1"
+
+# create parition
+sudo parted "${DISK}" mklabel gpt
+sudo cryptsetup luksFormat -v --type luks2 \
+			   --cipher aes-xts-plain64 \
+			   --key-size 512 \
+		           --hash sha512 \
+			   --iter-time 5000 \
+			   --pbkdf argon2id \
+			   --use-random \
+		           --verify-passphrase \
+			   --sector-size 0 \
+			   --offset 32768 \
+			   --header bakSSD.h "${DISK}"
+
+LUKS_PARTITION=cryptbakSSD
+sudo cryptsetup luksOpen "${DISK}" "${LUKS_PARTITION}"
+
+sudo mkfs.btrfs /dev/mapper/"${LUKS_PARTITION}"
+sudo mount /dev/mapper/"${LUKS_PARTITION}" /mnt/bakSSDi -o compress-force=zstd 
+
+
+sudo cryptsetup luksClose /dev/mapper/"${LUKS_PARTITION}"

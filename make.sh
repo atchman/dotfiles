@@ -5,15 +5,15 @@ PATHDOT = $(pwd)
 
 ############################################################
 # home directory
-ln -sf $PATHDOT/home/.bash_aliases $HOME/.bash_aliases
-ln -sf $PATHDOT/home/.bash_logout $HOME/.bash_profile
-ln -sf $PATHDOT/home/.bash_profile $HOME/.bash_profile
+ln -sfn $PATHDOT/home/.bash_aliases $HOME/.bash_aliases
+ln -sfn $PATHDOT/home/.bash_logout $HOME/.bash_profile
+ln -sfn $PATHDOT/home/.bash_profile $HOME/.bash_profile
 
 
 ###########################################################
 # firefox
 [ ! -d $HOME/.var/app/org.mozilla.firefox/.mozilla/firefox/ ]  
-ln -sf ~/git/dotfiles/firefox/chrome/userChrome.css ~/.var/app/org.mozilla.firefox/.mozilla/firefox/
+ln -sfn ~/dotfiles/firefox/chrome/userChrome.css ~/.var/app/org.mozilla.firefox/.mozilla/firefox/
 
 
 ###########################################################
@@ -21,13 +21,13 @@ ln -sf ~/git/dotfiles/firefox/chrome/userChrome.css ~/.var/app/org.mozilla.firef
 [ ! -d $HOME/.config ] && mkdir $HOME/.config
 
 [ -d $HOME/.config/alacritty ] && mkdir $HOME/.config/alacritty
-ln -sf $PATHDOT/config/alacritty/alacritty.toml $HOME/.config/alacritty
+ln -sfn $PATHDOT/config/alacritty/alacritty.toml $HOME/.config/alacritty
 
 [ -d $HOME/.config/bottom ] && mkdir $HOME/.config/bottom
-ln -sf $PATHDOT/config/bottom/bottom.toml $HOME/.config/bottom
+ln -sfn $PATHDOT/config/bottom/bottom.toml $HOME/.config/bottom
 
 [ -d $HOME/.config/dunst ] && mkdir $HOME/.config/dunst
-ln -sf $PATHDOT/config/dunst/dunstrc $HOME/.config/dunst/
+ln -sfn $PATHDOT/config/dunst/dunstrc $HOME/.config/dunst/
 
 [ ! -d $HOME/.config/eww ] && mkdir $HOME/.config/eww
 ln -sf $PATHDOT/config/eww/eww.yuck ] && mkdir $HOME/.config/eww
@@ -42,21 +42,27 @@ ln -sf $PATHDOT/config/foot/foot.ini $HOME/.config/foot
 ln -sf $PATHDOT/config/fuzzel/fuzzel.ini $HOME/.config/fuzzel
 
 [ ! -d $HOME/.config/git ] && mkdir $HOME/.config/git
-ln -sf $PATHDOT/config/git/ignore $HOME/.config/git
+ln -sf $PATHDOT/config/git/ignore $HOME/.config/git/ignore
+ln -sf $PATHDOT/config/git/config $HOME/.config/git/config
 
 [ ! -d $HOME/.config/gitui ] && mkdir $HOME/.config/gitui
 ln -sf $PATHDOT/config/gitui/theme.ron $HOME/.config/gitui
 
-#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
-ln -sf $PATHDOT/config/hypr $HOME/.config/hypr
+[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr/hyprland.conf $HOME/.config/hyprland.conf
+ln -sf $PATHDOT/config/hypr/keybind.conf $HOME/.config/hyprland.conf
+ln -sf $PATHDOT/config/hypr/envs.conf $HOME/.config/hyprland.conf
+ln -sf $PATHDOT/config/hypr/execs.conf $HOME/.config/hyprland.conf
+ln -sf $PATHDOT/config/hypr/plugin.conf $HOME/.config/hyprland.conf
+ln -sf $PATHDOT/config/hypr/windowrules.conf $HOME/.config/hyprland.conf
 
-#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
-ln -sf $PATHDOT/config/hypr/hyprpaper $HOME/.config/hypr/hyprpaper
+[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+ln -sf $PATHDOT/config/hypr/hyprpaper.conf $HOME/.config/hypr/hyprpaper.conf
 
-#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
 ln -sf $PATHDOT/config/hypr/hypridle $HOME/.config/hypr/hypridle
 
-#[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
+[ ! -d $HOME/.config/hypr ] && mkdir $HOME/.config/hypr
 ln -sf $PATHDOT/config/hypr/hyprlock $HOME/.config/hypr/hyprlock
 
 [ ! -d $HOME/.config/i3 ] && mkdir $HOME/.config/i3
@@ -105,7 +111,6 @@ ln -sf $PATHDOT/config/zellij/zellij.kdl $HOME/.config/zellij/zellij.kdl
 
 ###########################################################
 # local/bin
-[ ! -d $HOME/.local/bin/scripts ] && mkdir -p $HOME/.local/bin/scripts
-
-ln -sf $PATHDOT/local/bin/scripts/xdg-portal.sh $HOME/.local/bin/scripts
+[ ! -d $HOME/.local/bin/scripts ] && mkdir -p $HOME/.local/bin/
+ln -sfn $PATHDOT/local/bin/scripts/xdg-portal.sh $HOME/.local/bin
 

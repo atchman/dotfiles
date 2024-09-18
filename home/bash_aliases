@@ -25,4 +25,5 @@ alias fu="flatpak update"
 alias mr="mullvad reconnect"
 
 alias DF="cd ~/git/dotfiles"
-
+alias PF="cd ~/personal"
+alias LF="cd ~/personal/learn"

@@ -9,6 +9,14 @@
 .directory
 .Trash-*
 
+# projects
+.env
+env
+env.*
+.secret
+secret
+secret.*
+*.secret
 
 # archive
 *.tar

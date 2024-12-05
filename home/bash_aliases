@@ -1,17 +1,10 @@
-#
 # ~/.bash_aliases
-#
-#
-#
-# Write in ~/.bashrc:
-#
-# Alias definitions.
-# if [ -f ~/.bash_aliases ]; then
-#     . ~/.bash_aliases
-# fi 
-#
 
 alias startw="~/.local/bin/startw.sh"
+
+alias ls="ls --color=auto"
+alias ll="ls -lav --ignore=.."
+# alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
 alias n="nvim"
 alias N="sudo nvim"
@@ -28,3 +21,4 @@ alias DF="cd ~/git/dotfiles"
 alias PF="cd ~/personal"
 alias LF="cd ~/personal/learn"
 alias TF="cd ~/personal/tools"
+alias AOC="cd ~/personal/learn/advent-of-code/aoc-2024"

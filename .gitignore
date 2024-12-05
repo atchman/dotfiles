@@ -1,0 +1,47 @@
+# dotfiles
+
+# macos
+.DS_Store
+
+# linux
+.*.swp
+.nfs*
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# projects
+.env
+env
+env.*
+.secret
+secret
+secret.*
+*.secret
+
+# archive
+*.tar
+*.tar.*
+*.jar
+*.exe
+*.msi
+*.zip
+*.tgz
+*.log
+*.log.*
+*.sig
+
+# ssh 
+**/.ssh/id_*
+**/.ssh/*_id_*
+**/.ssh/known_hosts
+
+# key
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.priv
+

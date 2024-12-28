@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# 󰤄 Suspend
+OPTIONS="$(echo -e "󰌾 lock\n󰗽 logout\n shutdown\n reboot" | fuzzel --dmenu --w 10 -l 4 -p "powermenu: ")"
+
+case $OPTIONS in
+  "lock")
+    swaylock -f -c 000000;;
+  "logout")
+    hyprctl dispatch exit;;
+  "shutdown")
+    shutdown -P now;;
+  "reboot")
+    reboot;;
+esac

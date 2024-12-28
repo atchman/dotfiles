@@ -1,0 +1,14 @@
+flatpak install flathub \
+    io.github.flattool.Warehouse
+    com.github.tchx84.Flatseal
+    org.mozilla.firefox
+    org.localsend.localsend_app
+    org.kde.okular
+    org.gnucash.GnuCash
+    info.portfolio_performance.PortfolioPerformance
+    org.onlyoffice.desktopeditors
+    org.kde.skanpage
+    dev.vencord.Vesktop
+    com.valvesoftware.Steam
+    dev.goats.xivlauncher
+    net.veloren.airshipper

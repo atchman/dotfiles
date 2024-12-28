@@ -1,5 +1,4 @@
 git
-
 hyprland
 hyprlang
 hyprutils
@@ -7,40 +6,32 @@ hyprwayland-scanner
 hyprcursor
 xdg-desktop-portal-hyprland
 hyprpaper
-
 pipewire
 wireplumber
 Helvum
 ffmpeg
-
 fuzzel
-
 xdg-user-dirs
-
+ttf-jetbrains-mono-nerd
 foot
 tmux
 zellij
-
 neovim
 tree-sitter
-
-ttf-jetbrains-mono-nerd
-
+fzf
+rg
+fd
 Obsidian
 typst
-
 firewalld
-
 thunar
-yazi
+syncthing
+sqlite
+flatpak
+steam
 
+
+yazi
 zoxide
 
-syncthing
-
-sqlite
-
-flatpak
-
-steam
 

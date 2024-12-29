@@ -1,0 +1,6 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+theme = light:Violet Light,dark:zenbones_dark
+gtk-titlebar = false
+gtk-wide-tabs = false
+gtk-single-instance = true

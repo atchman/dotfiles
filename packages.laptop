@@ -13,6 +13,9 @@ ffmpeg
 fuzzel
 xdg-user-dirs
 ttf-jetbrains-mono-nerd
+fish
+starship
+ghostty
 foot
 tmux
 zellij

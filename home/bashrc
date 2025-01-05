@@ -100,3 +100,5 @@ eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
 
 # alias pacdiff=_Pacdiff
+
+eval "$(starship init bash)"

@@ -38,25 +38,28 @@ ln -sn "$(pwd)"/config/user-dirs.locale $HOME/.config
 ln -sn "$(pwd)"/config/alacritty $HOME/.config/alacritty
 
 [ -d $HOME/.config/autostart ] && rm -r $HOME/.config/autostart
-ln -sn "$(pwd)"/autostart ~/.config/autostart
+ln -sn "$(pwd)"/config/autostart ~/.config/autostart
 
 [ -d $HOME/.config/borgmatic.d ] && rm -r $HOME/.config/borgmatic.d
-ln -sn "$(pwd)"/borgmatic.d $HOME/.config/borgmatic.d
+ln -sn "$(pwd)"/config/borgmatic.d $HOME/.config/borgmatic.d
 
 [ -d $HOME/.config/bottom ] && rm -r $HOME/.config/bottom
 ln -sn "$(pwd)"/config/bottom $HOME/.config/bottom
 
 [ -d $HOME/.config/btop ] && rm -r $HOME/.config/btop
-ln -sn "$(pwd)"/btop ~/.config/btop
+ln -sn "$(pwd)"/config/btop ~/.config/btop
 
 [ -d $HOME/.config/calcurse ] && rm -r $HOME/.config/calcurse
-ln -sn "$(pwd)"/calcurse ~/.config/calcurse
+ln -sn "$(pwd)"/config/calcurse ~/.config/calcurse
 
 [ -d $HOME/.config/fastfetch ] && rm -r $HOME/.config/fastfetch
-ln -sn "$(pwd)"/fastfetch ~/.config/fastfetch
+ln -sn "$(pwd)"/config/fastfetch ~/.config/fastfetch
 
 [ -d $HOME/.config/firewall ] && rm -r $HOME/.config/firewall
-ln -sn "$(pwd)"/firewall ~/.config/firewall
+ln -sn "$(pwd)"/config/firewall ~/.config/firewall
+
+[ -d $HOME/.config/fish ] && rm -r $HOME/.config/fish
+ln -sn "$(pwd)"/config/fish ~/.config/fish
 
 [ -d $HOME/.config/flameshot ] && rm -r $HOME/.config/flameshot
 ln -sn "$(pwd)"/config/flameshot ~/.config/flameshot
@@ -68,7 +71,7 @@ ln -sn "$(pwd)"/config/foot $HOME/.config/foot
 ln -sn "$(pwd)"/config/fuzzel $HOME/.config/fuzzel
 
 [ -d $HOME/.config/ghostty ] && rm -r $HOME/.config/ghostty
-ln -sn "$(pwd)"/ghostty ~/.config/ghostty
+ln -sn "$(pwd)"/config/ghostty ~/.config/ghostty
 
 [ -d $HOME/.config/git ] && rm -r $HOME/.config/git
 ln -sn "$(pwd)"/config/git $HOME/.config/git
@@ -77,7 +80,7 @@ ln -sn "$(pwd)"/config/git $HOME/.config/git
 ln -sn "$(pwd)"/config/gitui $HOME/.config/gitui
 
 [ -d $HOME/.config/glow ] && rm -r $HOME/.config/glow
-ln -sn "$(pwd)"/glow ~/.config/glow
+ln -sn "$(pwd)"/config/glow ~/.config/glow
 
 [ -d $HOME/.config/hypr ] && rm -r $HOME/.config/hypr
 ln -sn "$(pwd)"/config/hypr $HOME/.config/hypr
@@ -98,23 +101,26 @@ ln -sn "$(pwd)"/config/mako $HOME/.config/mako
 cp "$(pwd)"/config/MangoHud/MangoHud.conf $HOME/.config/MangoHud
 
 [ -d $HOME/.config/mpd ] && rm -r $HOME/.config/mpd 
-ln -sn "$(pwd)"/mpd ~/.config/mpd
+ln -sn "$(pwd)"/config/mpd ~/.config/mpd
 
 [ -d $HOME/.config/mpv ] && rm -r $HOME/.config/mpv
-ln -sn "$(pwd)"/mpv ~/.config/mpv
+ln -sn "$(pwd)"/config/mpv ~/.config/mpv
 
 [ -d $HOME/.config/neofetch ] && rm -r $HOME/.config/neofetch
-ln -sn "$(pwd)"/neofetch ~/.config/neofetch
+ln -sn "$(pwd)"/config/neofetch ~/.config/neofetch
 
 [ -d $HOME/.config/nvim ] && rm -r $HOME/.config/nvim
 echo "manuell connecting nvim-config in ~/.config"
 ln -sn "$(pwd)"/config/nvim $HOME/.config/nvim
 
 [ -d $HOME/.config/nwg-look ] && rm -r $HOME/.config/nwg-look 
-ln -sn "$(pwd)"/nwg-look ~/.config/nwg-look
+ln -sn "$(pwd)"/config/nwg-look ~/.config/nwg-look
 
 [ -d $HOME/.config/pipewire ] && rm -r $HOME/.config/pipewire
-ln -sn "$(pwd)"/pipewire ~/.config/pipewire
+ln -sn "$(pwd)"/config/pipewire ~/.config/pipewire
+
+[ -f $HOME/.config/starship.toml ] && rm -r $HOME/.config/starship.toml
+ln -sn "$(pwd)"/config/starship/starship.toml ~/.config/starship.toml
 
 [ -d $HOME/.config/swayidle ] && rm -r $HOME/.config/swayidle
 ln -sn "$(pwd)"/config/swayidle $HOME/.config/swayidle
@@ -129,10 +135,10 @@ ln -sn "$(pwd)"/config/wavemon $HOME/.config/wavemon
 ln -sn "$(pwd)"/config/waybar $HOME/.config/waybar
 
 [ -d $HOME/.config/wireplumber ] && rm -r $HOME/.config/wireplumber
-ln -sn "$(pwd)"/wireplumber ~/.config/wireplumber
+ln -sn "$(pwd)"/config/wireplumber ~/.config/wireplumber
 
 [ -d $HOME/.config/xsettingsd ] && rm -r $HOME/.config/xsettingsd
-ln -sn "$(pwd)"/xsettingsd ~/.config/xsettingsd
+ln -sn "$(pwd)"/config/xsettingsd ~/.config/xsettingsd
 
 [ -d $HOME/.config/zellij ] && rm -r $HOME/.config/zellij
 ln -sn "$(pwd)"/config/zellij $HOME/.config/zellij

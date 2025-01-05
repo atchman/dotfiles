@@ -58,6 +58,9 @@ ln -sn "$(pwd)"/fastfetch ~/.config/fastfetch
 [ -d $HOME/.config/firewall ] && rm -r $HOME/.config/firewall
 ln -sn "$(pwd)"/firewall ~/.config/firewall
 
+[ -d $HOME/.config/flameshot ] && rm -r $HOME/.config/flameshot
+ln -sn "$(pwd)"/config/flameshot ~/.config/flameshot
+
 [ -d $HOME/.config/foot ] && rm -r $HOME/.config/foot
 ln -sn "$(pwd)"/config/foot $HOME/.config/foot
 

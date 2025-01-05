@@ -94,10 +94,9 @@ fi
 # fi
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
+# fzf
+eval "$(fzf --bash)"
 # zoxide
-# eval "$(zoxide init bash)"
+eval "$(zoxide init bash)"
 
 # alias pacdiff=_Pacdiff
-
-##############################
-

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# home cleanup
+# remove less history
+rm ~/.lesshst
+# remove config file for LightDM
+.dmrc
+# remove config file for nano
+.nanorc

@@ -45,3 +45,6 @@ secret.*
 *.der
 *.priv
 
+# dotfiles
+/config/mpd/database
+/config/mpd/state

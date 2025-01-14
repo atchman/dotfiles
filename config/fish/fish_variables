@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export HOSTNAME:eos17
+SETUVAR --export HOSTTYPE:x86_64
+SETUVAR --export OSTYPE:GNU/Linux
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr

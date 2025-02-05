@@ -119,6 +119,9 @@ ln -sn "$(pwd)"/config/nwg-look ~/.config/nwg-look
 [ -d $HOME/.config/pipewire ] && rm -r $HOME/.config/pipewire
 ln -sn "$(pwd)"/config/pipewire ~/.config/pipewire
 
+[ -d $HOME/.config/qt5ct/colors ] && rm -r $HOME/.config/qt5ct/colors
+ln -sn "$(pwd)"/config/qt5ct $HOME/.config/qt5ct/colors
+
 [ -f $HOME/.config/starship.toml ] && rm -r $HOME/.config/starship.toml
 ln -sn "$(pwd)"/config/starship/starship.toml ~/.config/starship.toml
 

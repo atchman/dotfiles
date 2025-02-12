@@ -20,6 +20,32 @@ $ git clone github.com/atchman/dotfiles.git $HOME/dotfiles
 |home|~|
 |script|~/.local/bin/|
 
+## Fonts
+
+- Adwaita-Fonts
+- JetBrains Mono Nerd Fonts
+
+## Themes
+
+[catppuccin](https://github.com/catppuccin/catppuccin)
+
+### Cursor Themes
+
+[catppuccin-cursors-mochaMauve](https://github.com/catppuccin/cursors)
+
+### GTK
+
+| category | name |
+| -------- |:----:|
+| Widget | Nordic |
+| Icon | Papirus-Dark |
+
+### QT
+
+- qt5ct 
+https://github.com/catppuccin/qt5ct
+
+
 ## Source
 
 https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html     

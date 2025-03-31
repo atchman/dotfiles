@@ -1,5 +1,6 @@
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 13
+command = fish
 theme = light:Violet Light, dark:tokyonight-storm
 # dark:catppuccin-mocha
 # dark:zenbones_dark

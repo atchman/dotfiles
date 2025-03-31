@@ -4,7 +4,7 @@
 abbr -a startw ~/.local/bin/startw.sh
 
 # neovim
-abbr -a n NVIM_APPNAME=nvimkick nvim
+# abbr -a n NVIM_APPNAME=nvimkick nvim
 abbr -a nn nvim
 abbr -a N sudo nvim
 
@@ -19,6 +19,7 @@ abbr -a fu flatpak update
 abbr -a mr mullvad reconnect
 
 # list
+abbr -a la ls -la
 abbr -a ls ls --color=auto
 abbr -a ll ls -lav --ignore=..
 

@@ -52,6 +52,9 @@ ln -sn "$(pwd)"/config/btop ~/.config/btop
 [ -d $HOME/.config/calcurse ] && rm -r $HOME/.config/calcurse
 ln -sn "$(pwd)"/config/calcurse ~/.config/calcurse
 
+[ -d $HOME/.config/containers ] && rm -r $HOME/.config/containers
+ln -sn "$(pwd)"/containers  $HOME/.config/containers
+
 [ -d $HOME/.config/fastfetch ] && rm -r $HOME/.config/fastfetch
 ln -sn "$(pwd)"/config/fastfetch ~/.config/fastfetch
 

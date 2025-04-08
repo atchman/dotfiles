@@ -55,6 +55,9 @@ ln -sn "$(pwd)"/config/calcurse ~/.config/calcurse
 [ -d $HOME/.config/containers ] && rm -r $HOME/.config/containers
 ln -sn "$(pwd)"/containers  $HOME/.config/containers
 
+[ -d $HOME/.config/environment.d ] && rm -r $HOME/.config/environment.d
+ln -sn "$(pwd)"/environment.d  $HOME/.config/environment.d
+
 [ -d $HOME/.config/fastfetch ] && rm -r $HOME/.config/fastfetch
 ln -sn "$(pwd)"/config/fastfetch ~/.config/fastfetch
 

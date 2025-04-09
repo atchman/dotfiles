@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo cp ./environment/environment /etc/environment
+
+# [ ! -d /etc/sysctl.d ] && mkdir /etc/sysctl.d
+# cp $PATHGIT/sysctl.d /etc/sysctl.d
+

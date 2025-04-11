@@ -9,7 +9,8 @@ success_symbol = '[;](bold green)'
 error_symbol = '[!](red)'
 
 [aws]
-symbol = "  "
+symbol = "☁️ "
+disabled = false
 
 [[battery.display]]
 threshold = 20
@@ -21,6 +22,15 @@ style = 'bold yellow'
 
 [c]
 symbol = " "
+
+[custom.quadlet]
+description = 'Podman Quadlet'
+command = "podman --version | awk '{ print $3 }'"
+shell = ['fish', '-N']
+detect_extensions = ['container', 'network', 'volume', 'pod']
+symbol = "🦭 "
+style = 'purple'
+format = 'via [$symbol($output )]($style)'
 
 [directory]
 read_only = " 󰌾"
@@ -44,13 +54,13 @@ tag_symbol = '  '
 symbol = " "
 
 [guix_shell]
-symbol = " "
+symbol = " "
 
 [haskell]
 symbol = " "
 
 [hostname]
-ssh_symbol = " "
+ssh_symbol = "🌐 "
 
 [kotlin]
 symbol = " "
@@ -108,6 +118,9 @@ Windows = "󰍲 "
 
 [package]
 symbol = "󰏗 "
+disabled = true
+
+[perl]
 disabled = true
 
 [python]

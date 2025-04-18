@@ -1,7 +1,19 @@
 [user]
-    name =
-    email = 
+    name = atchman
+    email = atchman@users.noreply.github.com 
+
 [core]
     editor = nvim
+    filemode = true
+
 [init]
     defaultBranch = main
+
+[pull]
+    rebase = true
+
+[merge]
+	conflictstyle = diff3
+
+[interactive]
+	diffFilter = delta --color-only

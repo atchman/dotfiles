@@ -24,10 +24,11 @@ abbr -a ls ls --color=auto
 abbr -a ll ls -lav --ignore=..
 
 # location
-abbr -a GF cd ~/git
 abbr -a DF cd ~/dotfiles
 abbr -a NF cd ~/.config/nvim
+abbr -a GF cd ~/git
 abbr -a PF cd ~/personal
 abbr -a LF cd ~/personal/learn
 abbr -a TF cd ~/personal/dev
+abbr -a QF cd ~/personal/dev/quadlet
 abbr -a AOC cd ~/personal/learn/advent-of-code/aoc-2024

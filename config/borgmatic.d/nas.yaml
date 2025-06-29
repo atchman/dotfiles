@@ -5,15 +5,14 @@
 # "{app_name}" will be replaced with "myapp" in the configuration
 # file.
 constants:
-    device_name: nas
-    # user: myuser
+    source_parent_folder: media
 
 # List of source directories and files to back up. Globs and tildes
 # are expanded. Do not backslash spaces in path names.
 source_directories:
-    - /home
-    - /etc
-    - /home/user/path with spaces
+    - ~/{source_parent_folder}/music
+    - ~/{source_parent_folder}/videos
+    - ~/{source_parent_folder}/pictures
 
 # A required list of local or remote repositories with paths and
 # optional labels (which can be used with the --repository flag to
@@ -27,7 +26,7 @@ source_directories:
 repositories:
     - path: ssh://user@backupserver/./sourcehostname.borg
       label: backupserver
-    - path: /mnt/nas
+    - path: /mnt/backup
       label: local
 
 # Working directory for the "borg create" command. Tildes are

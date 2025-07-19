@@ -11,14 +11,14 @@ $ git clone github.com/atchman/dotfiles.git $HOME/dotfiles
 
 ## Structure
 
-|Source|Destination|
-|:-|:---:|
-|config|~/.config |
-|etc|/etc|
-|firefox|~/.firefox|
-||~/.var/app/org.mozilla.firefox/config|
-|home|~|
-|script|~/.local/bin/|
+| Source  |              Destination              |
+|:--------|:-------------------------------------:|
+| config  |               ~/.config               |
+| etc     |                  /etc                 |
+| firefox |               ~/.firefox              |
+|         | ~/.var/app/org.mozilla.firefox/config |
+| home    |                   ~                   |
+| script  |             ~/.local/bin/             |
 
 ## Fonts
 
@@ -35,10 +35,10 @@ $ git clone github.com/atchman/dotfiles.git $HOME/dotfiles
 
 ### GTK
 
-| category | name |
-| -------- |:----:|
-| Widget | Nordic |
-| Icon | Papirus-Dark |
+| category | name         |
+| -------- | :----:       |
+| Widget   | Nordic       |
+| Icon     | Papirus-Dark |
 
 ### QT
 

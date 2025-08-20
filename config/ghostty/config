@@ -4,7 +4,7 @@ command = fish
 theme = light:Violet Light, dark:tokyonight-storm
 # dark:catppuccin-mocha
 # dark:zenbones_dark
-# window-decoration = server
+window-decoration = server
 gtk-titlebar = false
 gtk-wide-tabs = false
 gtk-single-instance = true

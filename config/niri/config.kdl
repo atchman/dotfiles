@@ -1,16 +1,72 @@
 // This config is in the KDL format: https://kdl.dev
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+// -------- Startup --------
+spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
+spawn-sh-at-startup "systemctl --user restart pipewire"
+
+spawn-at-startup "hyprpaper"
+spawn-at-startup "mako"
+spawn-at-startup "waybar"
+spawn-at-startup "ghostty"
+spawn-at-startup "foot" "--server"
+
+spawn-at-startup "firewall-applet"
+spawn-at-startup "system-config-printer-applet"
+spawn-at-startup "mullvad-vpn"
+
+// -------- Environment Variables --------
+environment {
+    // XDG Specifications
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "niri"
+
+    // QT
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+
+    // Toolkit
+    GDK_BACKEND "wayland,x11"
+    SDL_VIDEODRIVER "wayland"    //,x11
+    CLUTTER_BACKEND "wayland"
+
+    _JAVA_AWT_WM_NONREPARENTING "1"
+
+    // wlroots
+    WLR_LIBINPUT_NO_DEVICES "1"
+
+    // Mozilla
+    MOZ_ENABLE_WAYLAND "1"
+    MOZ_DISABLE_RDD_SANDBOX "1"
+
+    // electron
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+
+    // Theme
+    HYPRCURSOR_THEME "catppuccin-mocha-mauve-cursors"
+    HYPRCURSOR_SIZE "34"
+
+    // fcitx
+    // QT_IM_MODULE "fcitx"
+    // XMODIFIERS "@im=fcitx"
+}
+
+cursor {
+    xcursor-theme "catppuccin-mocha-mauve-cursors"
+    xcursor-size 34
+}
+
 // -------- input device --------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
         xkb {
-             // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
+            // see xkeyboard-config(7).
             layout "de"
+            // options "lv3:caps_switch"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
     }
@@ -60,6 +116,12 @@ output "eDP-1" {
     transform "normal"
     position x=0 y=0
     focus-at-startup
+}
+
+// -------- Switch Events --------
+switch-events {
+    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+    lid-open { spawn "notify-send" "The laptop lid is open!"; }
 }
 
 // -------- layout --------

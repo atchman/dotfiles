@@ -6,6 +6,8 @@ spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
 spawn-at-startup "hyprpaper"
+spawn-at-startup "swww-daemon"
+spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-at-startup "ghostty"
@@ -275,8 +277,7 @@ window-rule {
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
+// block out password managers from screen capture.
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -292,6 +293,20 @@ window-rule {
     geometry-corner-radius 3
     clip-to-geometry true
 }
+
+// chat
+spawn-at-startup "element-desktop"
+spawn-at-startup "thunderbird"
+spawn-at-startup "flatpak" "run" "dev.vencord.Vesktop"
+workspace "chat" {
+}
+window-rule {
+    match at-startup=true app-id=r#"^Element$"#
+    match at-startup=true app-id=r#"^thunderbird$"#
+    match at-startup=true app-id=r#"^vesktop$"#
+    open-on-workspace "chat"
+}
+
 
 // -------- keybindings --------
 binds {
@@ -314,6 +329,19 @@ binds {
     Super+Alt+L { spawn "swaylock"; }
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    Mod+E { spawn "thunar"; }
+    // Mod+K { spawn "KeePassXC"; }
+    // Mod+C { spawn "element"; }
+    // Mod+M { spawn "thunderbird"; }
+    // Mod+V { spawn "discord"; }
+    // Mod+L { spawn "localsend"; }
+    Mod+O { spawn "obsidian"; }
+
+    // screenshot
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+    Insert { spawn "wl-paste" "|" "swappy" "-f" "-"; }
 
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -391,6 +419,8 @@ binds {
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
+    
+    Mod+Tab { toggle-overview; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -500,10 +530,6 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

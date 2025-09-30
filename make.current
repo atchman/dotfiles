@@ -115,6 +115,9 @@ ln -sn "$(pwd)"/config/mpv ~/.config/mpv
 [ -d $HOME/.config/neofetch ] && rm -r $HOME/.config/neofetch
 ln -sn "$(pwd)"/config/neofetch ~/.config/neofetch
 
+[ -d $HOME/.config/niri ] && rm -r $HOME/.config/niri
+ln -sn "$(pwd)"/config/niri ~/.config/niri
+
 [ -d $HOME/.config/nvim ] && rm -r $HOME/.config/nvim
 echo "manuell connecting nvim-config in ~/.config"
 ln -sn "$(pwd)"/config/nvim $HOME/.config/nvim
@@ -136,6 +139,9 @@ ln -sn "$(pwd)"/config/swayidle $HOME/.config/swayidle
 
 [ -d $HOME/.config/swaylock ] && rm -r $HOME/.config/swaylock
 ln -sn "$(pwd)"/config/swaylock $HOME/.config/swaylock
+
+[ -d $HOME/.config/swww ] && rm -r $HOME/.config/swww
+ln -sn "$(pwd)"/config/swww $HOME/.config/swww
 
 [ -d $HOME/.config/wavemon ] && rm -r $HOME/.config/wavemon
 ln -sn "$(pwd)"/config/wavemon $HOME/.config/wavemon

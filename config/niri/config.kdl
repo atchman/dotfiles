@@ -5,12 +5,10 @@
 spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
-spawn-at-startup "hyprpaper"
 spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
-spawn-at-startup "ghostty"
 spawn-at-startup "foot" "--server"
 
 spawn-at-startup "firewall-applet"
@@ -68,7 +66,7 @@ input {
         xkb {
             // see xkeyboard-config(7).
             layout "de"
-            // options "lv3:caps_switch"
+            options "lv3:caps_switch"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
     }
@@ -145,7 +143,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 1.0; }
     focus-ring {
         // off
         // How many logical pixels the ring extends out from the windows.
@@ -172,7 +170,6 @@ layout {
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         off
-
         width 1
         active-color "#ffc87f"
         inactive-color "#505050"
@@ -183,28 +180,8 @@ layout {
 
     // You can enable drop shadows for windows.
     shadow {
-        // Uncomment the next line to enable shadows.
         // on
-
-        // By default, the shadow draws only around its window, and not behind it.
-        // Uncomment this setting to make the shadow draw behind its window.
-        //
-        // Note that niri has no way of knowing about the CSD window corner
-        // radius. It has to assume that windows have square corners, leading to
-        // shadow artifacts inside the CSD rounded corners. This setting fixes
-        // those artifacts.
-        // 
-        // However, instead you may want to set prefer-no-csd and/or
-        // geometry-corner-radius. Then, niri will know the corner radius and
-        // draw the shadow correctly, without having to draw it behind the
-        // window. These will also remove client-side shadows if the window
-        // draws any.
-        // 
         // draw-behind-window true
-
-        // You can change how shadows look. The values below are in logical
-        // pixels and match the CSS box-shadow properties.
-
         softness 30
         spread 5
         offset x=0 y=5
@@ -224,17 +201,7 @@ layout {
     }
 }
 
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
 
 // -------- screenshot --------
@@ -249,11 +216,6 @@ animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
-
-// -------- window-rule --------
-// workspace "COM" {
-//     open-on-output ""
-// }
 
 // -------- window-rule --------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
@@ -294,17 +256,33 @@ window-rule {
     clip-to-geometry true
 }
 
+// terminal
+spawn-at-startup "com.mitchellh.ghostty"
+
 // chat
 spawn-at-startup "element-desktop"
 spawn-at-startup "thunderbird"
 spawn-at-startup "flatpak" "run" "dev.vencord.Vesktop"
-workspace "chat" {
+workspace "COM" {
 }
 window-rule {
     match at-startup=true app-id=r#"^Element$"#
     match at-startup=true app-id=r#"^thunderbird$"#
     match at-startup=true app-id=r#"^vesktop$"#
-    open-on-workspace "chat"
+    open-on-workspace "COM"
+    open-maximized true
+}
+
+// note, keepass
+spawn-at-startup "obsidian"
+spawn-at-startup "org.keepassxc.KeePassXC"
+workspace "NOTE" {
+}
+window-rule {
+    match at-startup=true app-id=r#"^obsidian$"#
+    match at-startup=true app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    open-on-workspace "NOTE"
+    open-maximized true
 }
 
 
@@ -326,16 +304,12 @@ binds {
 
     Mod+Return { spawn "ghostty"; }
     Mod+D { spawn "fuzzel"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Super+Ctrl+L { spawn "swaylock" "-f" "-e" "-c" "000000"; }
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
     Mod+E { spawn "thunar"; }
-    // Mod+K { spawn "KeePassXC"; }
-    // Mod+C { spawn "element"; }
-    // Mod+M { spawn "thunderbird"; }
-    // Mod+V { spawn "discord"; }
+    Mod+B { spawn "org.mozilla.firefox"; }
     // Mod+L { spawn "localsend"; }
-    Mod+O { spawn "obsidian"; }
 
     // screenshot
     Print { screenshot; }

@@ -2,6 +2,8 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
 // -------- Startup --------
+//spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
@@ -9,6 +11,7 @@ spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
+spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"
 spawn-at-startup "foot" "--server"
 
 spawn-at-startup "firewall-applet"
@@ -17,6 +20,7 @@ spawn-at-startup "mullvad-vpn"
 
 // -------- Environment Variables --------
 environment {
+    //DISPLAY ":0"
     // XDG Specifications
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -30,7 +34,7 @@ environment {
 
     // Toolkit
     GDK_BACKEND "wayland,x11"
-    SDL_VIDEODRIVER "wayland"    //,x11
+    SDL_VIDEODRIVER "wayland,x11"
     CLUTTER_BACKEND "wayland"
 
     _JAVA_AWT_WM_NONREPARENTING "1"
@@ -138,6 +142,8 @@ layout {
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
+    //
+    background-color "transparent"
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
@@ -201,7 +207,12 @@ layout {
     }
 }
 
-// spawn-at-startup "alacritty" "-e" "fish"
+// overview layout
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
 prefer-no-csd
 
 // -------- screenshot --------
@@ -256,8 +267,11 @@ window-rule {
     clip-to-geometry true
 }
 
+//firefox
+spawn-at-startup "flatpal" "run" "org.mozilla.firefox"
+
 // terminal
-spawn-at-startup "com.mitchellh.ghostty"
+spawn-at-startup "ghostty"
 
 // chat
 spawn-at-startup "element-desktop"
@@ -283,6 +297,12 @@ window-rule {
     match at-startup=true app-id=r#"^org\.keepassxc\.KeePassXC$"#
     open-on-workspace "NOTE"
     open-maximized true
+}
+
+// steam
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=20 y=20 relative-to="bottom-right"
 }
 
 

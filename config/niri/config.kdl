@@ -213,13 +213,6 @@ layer-rule {
     place-within-backdrop true
 }
 
-prefer-no-csd
-
-// -------- screenshot --------
-// The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/media/pictures/screenshots/niri/screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null
-
 //-------- animations -------- 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
@@ -228,26 +221,19 @@ animations {
     // slowdown 3.0
 }
 
-// -------- window-rule --------
+prefer-no-csd
+
+// -------- screenshot --------
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/media/pictures/screenshots/niri/screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path null
+
+// -------- workspace / window-rule --------
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
+// for all windows.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
+    geometry-corner-radius 3
+    clip-to-geometry true
 }
 
 // block out password managers from screen capture.
@@ -261,17 +247,14 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
+// Work around WezTerm's initial configure bug
 window-rule {
-    geometry-corner-radius 3
-    clip-to-geometry true
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
 }
-
-//firefox
-spawn-at-startup "flatpal" "run" "org.mozilla.firefox"
-
-// terminal
-spawn-at-startup "ghostty"
 
 // chat
 spawn-at-startup "element-desktop"
@@ -287,9 +270,23 @@ window-rule {
     open-maximized true
 }
 
+//firefox
+spawn-at-startup "flatpak" "run" "org.mozilla.firefox"
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// terminal
+spawn-at-startup "ghostty"
+
 // note, keepass
 spawn-at-startup "obsidian"
-spawn-at-startup "org.keepassxc.KeePassXC"
+spawn-at-startup "keepassxc"
 workspace "NOTE" {
 }
 window-rule {
@@ -304,7 +301,6 @@ window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=20 y=20 relative-to="bottom-right"
 }
-
 
 // -------- keybindings --------
 binds {

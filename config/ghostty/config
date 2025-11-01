@@ -5,6 +5,8 @@ command = fish
 theme = light:Violet Light, dark:Catppuccin Mocha
 # dark:catppuccin-mocha
 # dark:zenbones_dark
+cursor-style = block
+cursor-style-blink = false
 window-decoration = server
 gtk-titlebar = false
 gtk-wide-tabs = false

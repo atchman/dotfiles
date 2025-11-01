@@ -8,7 +8,7 @@ spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
 spawn-at-startup "swww-daemon"
-spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
+// spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
 spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"
@@ -20,7 +20,7 @@ spawn-at-startup "mullvad-vpn"
 
 // -------- Environment Variables --------
 environment {
-    //DISPLAY ":0"
+    // DISPLAY ":0"
     // XDG Specifications
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -115,7 +115,10 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "eDP-1" {
     // off
-    mode "1920x1080@60.00"
+    // mode "1920x1080"
+    mode "1920x1080@60.002250"
+    // mode "3840x2160"
+    // mode "3840x2160@60.002250"
     scale 2
     transform "normal"
     position x=0 y=0
@@ -149,7 +152,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 1.0; }
+    // default-column-width { proportion 1.0; }
     focus-ring {
         // off
         // How many logical pixels the ring extends out from the windows.
@@ -240,18 +243,13 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
     block-out-from "screen-capture"
-
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
 
 // Work around WezTerm's initial configure bug
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
@@ -273,6 +271,12 @@ window-rule {
 //firefox
 spawn-at-startup "flatpak" "run" "org.mozilla.firefox"
 // Open the Firefox picture-in-picture player as floating by default.
+workspace "BROW" {
+}
+window-rule {
+    match at-startup=true app-id=r#"firefox$"#
+    open-on-workspace "BROW"
+}
 window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
@@ -283,6 +287,12 @@ window-rule {
 
 // terminal
 spawn-at-startup "ghostty"
+workspace "TERM" {
+}
+window-rule {
+    match at-startup=true app-id=r#"ghostty$"#
+    open-on-workspace "TERM"
+}
 
 // note, keepass
 spawn-at-startup "obsidian"
@@ -291,16 +301,33 @@ workspace "NOTE" {
 }
 window-rule {
     match at-startup=true app-id=r#"^obsidian$"#
-    match at-startup=true app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match at-startup=true app-id=r#"KeePassXC$"#
     open-on-workspace "NOTE"
     open-maximized true
 }
 
 // steam
 window-rule {
-    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=20 y=20 relative-to="bottom-right"
+    match app-id="steam" title="Sign in to Steam"
+    open-floating true
+    default-column-width { fixed 704; }
+    default-window-height { fixed 440; }
 }
+window-rule {
+    match app-id="steam" title="Steam"
+    open-maximized true
+}
+// window-rule {
+//     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+//     default-floating-position x=100 y=60 relative-to="bottom-right"
+// }
+window-rule {
+    match app-id="steam" title="Friends List"
+    open-maximized false
+    open-fullscreen false
+    open-floating true
+}
+
 
 // -------- keybindings --------
 binds {
@@ -331,7 +358,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    Insert { spawn "wl-paste" "|" "swappy" "-f" "-"; }
+    Delete { spawn "wl-paste" "|" "swappy" "-f" "-"; }
 
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -346,11 +373,11 @@ binds {
     Mod+Left  { focus-column-left; }
     Mod+H     { focus-column-left; }
     Mod+Down  { focus-window-down; }
-    Mod+J     { focus-window-down; }
-    // Mod+J     { focus-window-or-workspace-down; }
+    // Mod+J     { focus-window-down; }
+    Mod+J     { focus-window-or-workspace-down; }
     Mod+Up    { focus-window-up; }
-    Mod+K     { focus-window-up; }
-    // Mod+K     { focus-window-or-workspace-up; }
+    // Mod+K     { focus-window-up; }
+    Mod+K     { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
     Mod+L     { focus-column-right; }
 
@@ -461,15 +488,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace "COM"; }
     Mod+9 { focus-workspace "MON"; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace "COM"; }
-    Mod+Ctrl+9 { move-column-to-workspace "MON"; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace "COM"; }
+    Mod+Shift+9 { move-column-to-workspace "MON"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

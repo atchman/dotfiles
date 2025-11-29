@@ -16,7 +16,7 @@ spawn-at-startup "foot" "--server"
 
 spawn-at-startup "firewall-applet"
 spawn-at-startup "system-config-printer-applet"
-spawn-at-startup "mullvad-vpn"
+//spawn-at-startup "mullvad-vpn"
 
 // -------- Environment Variables --------
 environment {
@@ -358,7 +358,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-    Delete { spawn "wl-paste" "|" "swappy" "-f" "-"; }
+    Shift+Print { spawn "bash" "-c" "wl-paste | swappy -f -"; }
 
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }

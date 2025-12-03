@@ -2,9 +2,9 @@
 # start wayland compositor
 # in terminal multiplexer
 
-# zellij
 # zellij attach --create hypr
-zellij -l <(cat <<KDL
+hypr() {
+    zellij -l <(cat <<KDL
 layout {
     tab name="hypr" {
         pane command="Hyprland"
@@ -12,6 +12,13 @@ layout {
 }
 KDL
 )
-
+}
 # tmux
 # tmux new -s hypr Hyprland
+
+niri() {
+    niri-session
+}
+
+# --- main ---
+niri

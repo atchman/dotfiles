@@ -4,7 +4,9 @@
 abbr -a startw ~/.local/bin/startw.sh
 
 # neovim
-abbr -a n nvim
+abbr -a vi nvim
+abbr -a vim nvim
+# abbr -a n nvim
 # abbr -a N sudo nvim
 
 # grub

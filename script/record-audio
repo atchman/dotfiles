@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -euo pipefail
+
+#export PATH=""
+
+BASENAME=${1-}
+TITLE=${2-}
+
+if [ -z "$BASENAME" ]; then
+    echo "[ ] No name given, defaulting to 'memo'"
+    BASENAME=memo
+fi
+
+if [ -z "$TITLE" ]; then
+    echo "[ ] No title given, defaulting to ..."
+    TITLE="$BASENAME"
+fi
+
+RECORDING_DIR="$HOME/media/recording"
+FILEBASE=$(date +"$RECORDING_DIR/$BASENAME/%Y-%m-%d_%H-%M-%S_$TITLE")
+
+if $(mkdir -p "$RECORDING_DIR/$BASENAME"); then
+    echo "[X] starting recording ..."
+    ffmpeg -f pulse -i default -af volume=30dB "$FILEBASE.opus"
+else 
+    echo "[] Could not initialize recording directory $RECORDING_DIR/$BASENAME" 
+fi

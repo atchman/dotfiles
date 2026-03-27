@@ -7,7 +7,7 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 // spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"

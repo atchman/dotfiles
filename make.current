@@ -40,6 +40,12 @@ ln -sn "$(pwd)"/config/alacritty $HOME/.config/alacritty
 [ -d $HOME/.config/autostart ] && rm -r $HOME/.config/autostart
 ln -sn "$(pwd)"/config/autostart ~/.config/autostart
 
+[ -d $HOME/.config/awww ] && rm -r $HOME/.config/awww
+ln -sn "$(pwd)/config/awww ~/.config/awww
+
+[ -d $HOME/.config/swww ] && rm -r $HOME/.config/swww
+ln -sn "$(pwd)"/config/swww $HOME/.config/swww
+
 [ -d $HOME/.config/borgmatic.d ] && rm -r $HOME/.config/borgmatic.d
 ln -sn "$(pwd)"/config/borgmatic.d $HOME/.config/borgmatic.d
 
@@ -139,9 +145,6 @@ ln -sn "$(pwd)"/config/swayidle $HOME/.config/swayidle
 
 [ -d $HOME/.config/swaylock ] && rm -r $HOME/.config/swaylock
 ln -sn "$(pwd)"/config/swaylock $HOME/.config/swaylock
-
-[ -d $HOME/.config/swww ] && rm -r $HOME/.config/swww
-ln -sn "$(pwd)"/config/swww $HOME/.config/swww
 
 [ -d $HOME/.config/wavemon ] && rm -r $HOME/.config/wavemon
 ln -sn "$(pwd)"/config/wavemon $HOME/.config/wavemon

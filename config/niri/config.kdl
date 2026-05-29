@@ -9,8 +9,8 @@ spawn-sh-at-startup "systemctl --user restart pipewire"
 
 spawn-at-startup "awww-daemon"
 // spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
+//spawn-at-startup "mako"
+//spawn-at-startup "waybar"
 spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"
 spawn-at-startup "foot" "--server"
 
@@ -212,7 +212,7 @@ layout {
 
 // overview layout
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 
@@ -237,6 +237,13 @@ screenshot-path "~/media/pictures/screenshots/niri/screenshot from %Y-%m-%d %H-%
 window-rule {
     geometry-corner-radius 3
     clip-to-geometry true
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
 
 // block out password managers from screen capture.
@@ -566,3 +573,10 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// noctalia 
+spawn-at-startup "qs" "-c" "noctalia-shell"

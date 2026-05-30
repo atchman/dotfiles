@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Create Snapshot
+Comment=Create btrfs snapshot of root
+Exec=sudo sh -c 'timeshift --create --comments "manual" && sleep 2'
+Icon=timeshift
+StartupNotify=false
+Terminal=true
+Type=Application

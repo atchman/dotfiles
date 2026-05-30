@@ -1,3 +1,6 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 # https://alacritty.org/config-alacritty.html
 

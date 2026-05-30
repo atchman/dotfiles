@@ -9,7 +9,7 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
@@ -18,6 +18,11 @@
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
+            "com.mitchellh.ghostty",
+            "dev.vencord.Vesktop",
+            "com.valvesoftware.Steam",
+            "io.element.Element",
+            "org.kde.skanpage"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -42,7 +47,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.05,
+        "backgroundOpacity": 0.9500000000000001,
         "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
@@ -64,7 +69,7 @@
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
         "outerCorners": false,
-        "position": "bottom",
+        "position": "top",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
         "rightClickCommand": "",
@@ -81,10 +86,10 @@
                 {
                     "clockColor": "tertiary",
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, dd. MMM",
+                    "formatHorizontal": "  HH:mm -   ddd, dd. MMM",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
-                    "tooltipFormat": "HH:mm dddd, dd. MMM yyyy t",
+                    "tooltipFormat": "HH:mm dddd, dd. MMM yyyy",
                     "useCustomFont": false
                 }
             ],
@@ -100,6 +105,47 @@
                     "useDistroLogo": false
                 },
                 {
+                    "defaultSettings": {
+                        "autoHeight": true,
+                        "bindOverrides": {
+                        },
+                        "cheatsheetData": [
+                        ],
+                        "columnCount": 3,
+                        "descriptionTextColor": "",
+                        "detectedCompositor": "",
+                        "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+                        "hyprlandLuaConfigPath": "~/.config/hypr/hyprland.lua",
+                        "hyprlandParserMode": "auto",
+                        "keyColorAlt": "#FF6B6B",
+                        "keyColorCtrl": "",
+                        "keyColorDefault": "#6C757D",
+                        "keyColorMouse": "#F38181",
+                        "keyColorNumeric": "#A8DADC",
+                        "keyColorPrint": "#95E1D3",
+                        "keyColorShift": "",
+                        "keyColorSuper": "",
+                        "keyColorXF86": "#4ECDC4",
+                        "keyLabelColor": "#FFFFFF",
+                        "keyTextAlt": "",
+                        "keyTextCtrl": "",
+                        "keyTextDefault": "",
+                        "keyTextMouse": "",
+                        "keyTextNumeric": "",
+                        "keyTextPrint": "",
+                        "keyTextShift": "",
+                        "keyTextSuper": "",
+                        "keyTextXF86": "",
+                        "mangoConfigPath": "~/.config/mango/config.conf",
+                        "mergeSequentialBinds": true,
+                        "modKeyVariable": "$mod",
+                        "niriConfigPath": "~/.config/niri/config.kdl",
+                        "showUndescribedBinds": true,
+                        "splitLargeWorkspaceCategory": true,
+                        "windowHeight": 850,
+                        "windowWidth": 1400,
+                        "workspaceSplitThreshold": 12
+                    },
                     "id": "plugin:keybind-cheatsheet"
                 },
                 {
@@ -112,29 +158,13 @@
                     "id": "Tray",
                     "pinned": [
                     ]
-                },
-                {
-                    "compactMode": false,
-                    "hideMode": "hidden",
-                    "hideWhenIdle": false,
-                    "id": "MediaMini",
-                    "maxWidth": 145,
-                    "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
-                    "showAlbumArt": true,
-                    "showArtistFirst": true,
-                    "showProgressRing": true,
-                    "showVisualizer": true,
-                    "textColor": "none",
-                    "useFixedWidth": false,
-                    "visualizerType": "wave"
                 }
             ],
             "right": [
                 {
                     "compactMode": false,
                     "diskPath": "/",
-                    "iconColor": "none",
+                    "iconColor": "secondary",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
                     "showCpuFreq": false,
@@ -149,20 +179,20 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "none",
+                    "textColor": "tertiary",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
                 {
                     "displayMode": "onhover",
-                    "iconColor": "none",
+                    "iconColor": "error",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "none"
+                    "textColor": "tertiary"
                 },
                 {
                     "displayMode": "onhover",
-                    "iconColor": "none",
+                    "iconColor": "tertiary",
                     "id": "Microphone",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
@@ -174,6 +204,12 @@
                     "textColor": "secondary"
                 },
                 {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Bluetooth",
+                    "textColor": "none"
+                },
+                {
                     "applyToAllMonitors": false,
                     "displayMode": "onhover",
                     "iconColor": "none",
@@ -182,12 +218,12 @@
                 },
                 {
                     "deviceNativePath": "BAT0",
-                    "displayMode": "graphic-clean",
+                    "displayMode": "graphic",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false
+                    "showNoctaliaPerformance": true,
+                    "showPowerProfiles": true
                 },
                 {
                     "hideWhenZero": false,
@@ -228,7 +264,7 @@
                 "id": "calendar-month-card"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "weather-card"
             }
         ]
@@ -267,7 +303,7 @@
                 "id": "weather-card"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "media-sysmon-card"
             }
         ],
@@ -282,10 +318,10 @@
                     "id": "Bluetooth"
                 },
                 {
-                    "id": "WallpaperSelector"
+                    "id": "NoctaliaPerformance"
                 },
                 {
-                    "id": "NoctaliaPerformance"
+                    "id": "AirplaneMode"
                 }
             ],
             "right": [
@@ -353,9 +389,9 @@
         "autoStartAuth": false,
         "avatarImage": "/home/atchman/.face",
         "boxRadiusRatio": 1,
-        "clockFormat": "HH:mm\\nddd, dd. MMM",
+        "clockFormat": " HH:mm\\n  ddd, dd. MMM",
         "clockStyle": "custom",
-        "compactLockScreen": false,
+        "compactLockScreen": true,
         "dimmerOpacity": 0.2,
         "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
@@ -594,15 +630,15 @@
     },
     "settingsVersion": 59,
     "systemMonitor": {
-        "batteryCriticalThreshold": 5,
-        "batteryWarningThreshold": 20,
+        "batteryCriticalThreshold": 10,
+        "batteryWarningThreshold": 30,
         "cpuCriticalThreshold": 90,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
-        "diskAvailCriticalThreshold": 10,
-        "diskAvailWarningThreshold": 20,
-        "diskCriticalThreshold": 90,
-        "diskWarningThreshold": 80,
+        "diskAvailCriticalThreshold": 15,
+        "diskAvailWarningThreshold": 25,
+        "diskCriticalThreshold": 85,
+        "diskWarningThreshold": 75,
         "enableDgpuMonitoring": false,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
@@ -618,6 +654,58 @@
     },
     "templates": {
         "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "ghostty"
+            },
+            {
+                "enabled": true,
+                "id": "fuzzel"
+            },
+            {
+                "enabled": true,
+                "id": "foot"
+            },
+            {
+                "enabled": true,
+                "id": "btop"
+            },
+            {
+                "enabled": true,
+                "id": "alacritty"
+            },
+            {
+                "enabled": true,
+                "id": "starship"
+            },
+            {
+                "enabled": true,
+                "id": "steam"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
+            }
         ],
         "enableUserTheming": false
     },

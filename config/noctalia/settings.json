@@ -9,7 +9,7 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": true,
+        "enableClipboardHistory": false,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
@@ -29,7 +29,7 @@
         "showCategories": true,
         "showIconBackground": false,
         "sortByMostUsed": true,
-        "terminalCommand": "alacritty -e",
+        "terminalCommand": "ghostty -e",
         "viewMode": "list"
     },
     "audio": {
@@ -95,13 +95,13 @@
             ],
             "left": [
                 {
+                    "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
-                    "icon": "rocket",
-                    "iconColor": "none",
-                    "id": "Launcher",
+                    "icon": "noctalia",
+                    "id": "ControlCenter",
                     "useDistroLogo": false
                 },
                 {
@@ -232,16 +232,6 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "primary"
-                },
-                {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
                 }
             ]
         }
@@ -489,7 +479,7 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": true,
+        "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
@@ -527,7 +517,7 @@
         ],
         "normalUrgencyDuration": 8,
         "overlayLayer": true,
-        "respectExpireTimeout": false,
+        "respectExpireTimeout": true,
         "saveToHistory": {
             "critical": true,
             "low": true,
@@ -535,7 +525,7 @@
         },
         "sounds": {
             "criticalSoundFile": "",
-            "enabled": false,
+            "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
             "lowSoundFile": "",
             "normalSoundFile": "",
@@ -550,7 +540,8 @@
         "enabledTypes": [
             0,
             1,
-            2
+            2,
+            3
         ],
         "location": "top_right",
         "monitors": [

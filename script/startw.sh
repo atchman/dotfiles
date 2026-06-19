@@ -9,7 +9,7 @@ hypr() {
     zellij -l <(cat <<KDL
 layout {
     tab name="hypr" {
-        pane command="Hyprland"
+        pane command="dbus-run-session -- Hyprland"
     }
 }
 KDL
@@ -20,7 +20,7 @@ KDL
 
 # niri
 niri() {
-    niri-session
+    dbus-run-session -- niri
 }
 
 # help

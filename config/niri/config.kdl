@@ -3,20 +3,24 @@
 
 // -------- Startup --------
 //spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
+// noctalia 
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
 spawn-at-startup "awww-daemon"
-// spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
+//spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
 //spawn-at-startup "mako"
 //spawn-at-startup "waybar"
-spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"
+//spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"
 spawn-at-startup "foot" "--server"
 
-spawn-at-startup "firewall-applet"
+//spawn-at-startup "firewall-applet"
 spawn-at-startup "system-config-printer-applet"
-//spawn-at-startup "mullvad-vpn"
+// mullvad vpn
+spawn-sh-at-startup "mullvad-vpn && sleep 2 && pkill -9 mullvad-gui && mullvad-vpn" 
 
 // -------- Environment Variables --------
 environment {
@@ -107,7 +111,8 @@ input {
         // scroll-button 273
         // middle-emulation
     }
-
+    mod-key "Super"
+    mod-key-nested "Super"
     focus-follows-mouse max-scroll-amount="5%"
 }
 
@@ -270,6 +275,7 @@ workspace "COM" {
 window-rule {
     match at-startup=true app-id=r#"^Element$"#
     match at-startup=true app-id=r#"^thunderbird$"#
+    match at-startup=true app-id=r#"^org.mozilla.Thunderbird$"#
     match at-startup=true app-id=r#"^vesktop$"#
     open-on-workspace "COM"
     open-maximized true
@@ -299,6 +305,7 @@ workspace "TERM" {
 window-rule {
     match at-startup=true app-id=r#"ghostty$"#
     open-on-workspace "TERM"
+    open-maximized true
 }
 
 // note, keepass
@@ -350,11 +357,14 @@ binds {
 
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    //Mod+Shift+question { show-hotkey-overlay; }
+    Mod+Shift+ssharp { show-hotkey-overlay; }
 
     Mod+Return { spawn "ghostty"; }
-    Mod+D { spawn "fuzzel"; }
-    Super+Ctrl+L { spawn "swaylock" "-f" "-e" "-c" "000000"; }
+    //Mod+D { spawn "fuzzel"; }
+    Mod+D { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    //Super+Ctrl+L { spawn "swaylock" "-f" "-e" "-c" "000000"; }
+    Super+Ctrl+L { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
     Mod+E { spawn "thunar"; }
@@ -486,22 +496,25 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
+    Mod+dead_circumflex { focus-workspace "COM"; }
+    //Mod+0 { focus-workspace "COM"; }
+    Mod+1 { focus-workspace "BROW"; }
+    Mod+2 { focus-workspace "TERM"; }
     Mod+3 { focus-workspace 3; }
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
+    Mod+7 { focus-workspace "NOTE"; }
     Mod+8 { focus-workspace "COM"; }
     Mod+9 { focus-workspace "MON"; }
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+dead_circumflex { move-column-to-workspace "COM"; }
+    Mod+Shift+1 { move-column-to-workspace "BROW"; }
+    Mod+Shift+2 { move-column-to-workspace "TERM"; }
     Mod+Shift+3 { move-column-to-workspace 3; }
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
     Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+7 { move-column-to-workspace "NOTE"; }
     Mod+Shift+8 { move-column-to-workspace "COM"; }
     Mod+Shift+9 { move-column-to-workspace "MON"; }
 
@@ -578,8 +591,4 @@ debug {
     honor-xdg-activation-with-invalid-serial
 }
 
-// noctalia 
-spawn-at-startup "qs" "-c" "noctalia-shell"
-
 include "./noctalia.kdl"
-

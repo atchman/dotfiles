@@ -11,7 +11,7 @@ spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
 spawn-sh-at-startup "systemctl --user restart pipewire"
 
 spawn-at-startup "awww-daemon"
-//spawn-sh-at-startup "swww img ~/.config/swww/black-white-tree-grave.jpg"
+//spawn-sh-at-startup "awww img ~/.config/background/black-white-tree-grave.jpg"
 //spawn-at-startup "mako"
 //spawn-at-startup "waybar"
 //spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors" "timeout" "300" "swaylock -f -c 000000" "before-sleep" "swaylock -f -c 000000"

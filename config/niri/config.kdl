@@ -4,7 +4,8 @@
 // -------- Startup --------
 //spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
 // noctalia 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+//spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "/usr/lib/at-spi-bus-launcher --launch-immediately"
@@ -221,6 +222,11 @@ layer-rule {
     place-within-backdrop true
 }
 
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
 //-------- animations -------- 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
@@ -362,11 +368,13 @@ binds {
 
     Mod+Return { spawn "ghostty"; }
     //Mod+D { spawn "fuzzel"; }
-    Mod+D { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
     //Super+Ctrl+L { spawn "swaylock" "-f" "-e" "-c" "000000"; }
-    Super+Ctrl+L { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    //Super+Ctrl+L { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Super+Ctrl+L { spawn-sh "noctalia msg session lock"; }
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    Mod+O { spawn-sh "noctalia msg settings-toggle"; }
     Mod+E { spawn "thunar"; }
     Mod+B { spawn "org.mozilla.firefox"; }
     // Mod+L { spawn "localsend"; }

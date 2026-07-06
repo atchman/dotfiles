@@ -133,7 +133,7 @@ output "eDP-1" {
 
 // -------- Switch Events --------
 switch-events {
-    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+    lid-close { spawn "noctalia" "msg" "session" "lock"; } // "notify-send" "The laptop lid is closed!" ;
     lid-open { spawn "notify-send" "The laptop lid is open!"; }
 }
 

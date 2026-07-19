@@ -24,7 +24,7 @@ require("workspaces")
 require("windowrules")
 
 -- execute your favorite apps at launch
-require("execs")
+require("autostart")
 
 -- key binds
 require("keybinds")

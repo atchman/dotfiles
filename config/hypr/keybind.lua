@@ -1,13 +1,16 @@
-# keybindings
+-- keybindings
 
-$mainMod = SUPER
+local mainMod = SUPER 
 
 
-# bind = $mainMod, return, exec, footclient
-bind = $mainMod, return, exec, ghostty
-bind = $mainMod, E, togglespecialworkspace, thunar
-bind = $mainMod, D, exec, fuzzel  # wofi --show drun
-#bind = $mainMod, L, 'swaylock' timeout 10 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+-- bind = $mainMod, return, exec, footclient
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty"))
+hl.bind("SUPER + E", hl.dsp.workspace.toggle_special("thunar"))
+
+hl.bind("SUPER + D", hl.dsp.exec_cmd("fuzzel"))
+
+
+--bind = $mainMod, L, 'swaylock' timeout 10 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 bind = $mainMod, K, togglespecialworkspace, keepass
 bind = $mainMod, C, togglespecialworkspace, element
 bind = $mainMod, M, togglespecialworkspace, email
@@ -17,17 +20,17 @@ bind = $mainMod, H, togglespecialworkspace, sound
 
 bind = $mainMod, O, togglespecialworkspace, obsidian
 
-# kill
+-- kill
 bind = $mainMod SHIFT, Q, killactive,
 
-# lock
+-- lock
 bind = $mainMod CTRL, Y, exec, swaylock -f -c 000000
-# lid
+-- lid
 bindl = , switch:[Lid Switch], exec, swaylock -f -c 000000
 bindl = , switch:off:[Lid Switch], exec, hyprctl keyword monitor "eDP-1, disable"
 bindl = , switch:on:[Lid Switch], exec, hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"
 
-# power menue
+-- power menue
 bind = $mainMod CTRL, M, submap, power
 submap = power
 binde = , N, exec, hyprctl dispatch exit,
@@ -36,27 +39,27 @@ binde = , R, exec, reboot
 bind = , catchall, submap, reset
 submap = reset
 
-# screenshot
+-- screenshot
 bind = , print, exec, XDG_CURRENT_DESKTOP=sway flameshot full
 bind = SHIFT, print, exec, XDG_CURRENT_DESKTOP=sway flameshot gui
-# bind = , print, exec, grim $(xdg-user-dir PICTURES)/screenshots/$(date +'%F_%H-%M-%S.png') # | notify-send "Screenshot saved to folder"
-# bind = SHIFT, print, exec, grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +'%F_%H-%M-%S.png')
-# && notify-send "Selected Screenshot Area saved to folder"
-# bind = CTRL SHIFT, print, exec, grim -g "$(slurp)" - | wl-copy -t "image/png" && notify-send "Screenshot copied to Clipboard"
+-- bind = , print, exec, grim $(xdg-user-dir PICTURES)/screenshots/$(date +'%F_%H-%M-%S.png') -- | notify-send "Screenshot saved to folder"
+-- bind = SHIFT, print, exec, grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +'%F_%H-%M-%S.png')
+-- && notify-send "Selected Screenshot Area saved to folder"
+-- bind = CTRL SHIFT, print, exec, grim -g "$(slurp)" - | wl-copy -t "image/png" && notify-send "Screenshot copied to Clipboard"
 
 bind = $mainMod SHIFT, D, fullscreen, 0
 bind = $mainMod SHIFT, F, togglefloating, 
-bind = $mainMod SHIFT, S, togglesplit, # dwindle
+bind = $mainMod SHIFT, S, togglesplit, -- dwindle
 bind = $mainMod SHIFT, G, centerwindow
 bind = $mainMod SHIFT, I, pin
-bind = $mainMod SHIFT, T, pseudo, # dwindle
+bind = $mainMod SHIFT, T, pseudo, -- dwindle
 
-# group
+-- group
 bind = $mainMod, tab, changegroupactive
 bind = $mainMod SHIFT, tab, togglegroup
 bind = $mainMod CTRL, tab, lockactivegroup, toogle
 
-# Move focus with mainMod + arrow keys
+-- Move focus with mainMod + arrow keys
 bind = $mainMod SHIFT, left, movefocus, l
 bind = $mainMod SHIFT, H, movefocus, l
 bind = $mainMod SHIFT, right, movefocus, r
@@ -75,7 +78,7 @@ bind = $mainMod CTRL, K, movewindow, u
 bind = $mainMod CTRL, down, movewindow, d
 bind = $mainMod CTRL, J, movewindow, d
 
-# resize window
+-- resize window
 bind = $mainMod CTRL, R, submap, resize
 submap = resize
 binde = , left, resizeactive, -5 0
@@ -90,7 +93,7 @@ bind = , escape, submap, reset
 submap = reset
 
 
-# Switch workspaces with mainMod + [0-9]
+-- Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
 bind = $mainMod, 2, workspace, 2
 bind = $mainMod, 3, workspace, 3
@@ -106,7 +109,7 @@ bind = $mainMod SHIFT, E, togglespecialworkspace
 bind = $mainMod SHIFT, R, movetoworkspace, special
 
 
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
 bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
 bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
@@ -118,27 +121,27 @@ bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
 bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
 bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
 
-# Scroll through existing workspaces with mainMod + scroll
+-- Scroll through existing workspaces with mainMod + scroll
 bind = $mainMod, mouse_down, workspace, e+1
 bind = $mainMod, mouse_up, workspace, e-1
 
-# Move/resize windows with mainMod + LMB/RMB and dragging
+-- Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
 
-# audio
+-- audio
 bindle = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindle = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindlr = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-# bindlr = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+-- bindlr = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-# brightness
+-- brightness
 bindle = , XF86MonBrightnessDown, exec, brightnessctl set 1%-
 bindle = , XF86MonBrightnessUp, exec, brightnessctl set 1%+
 
-# player
+-- player
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 bind = , XF86AudioNext, exec, playerctl next
 bind = , XF86AudioPrev, exec, playerctl previous
-# bindl = , XF86audiostop, exec, playerctl stop
+-- bindl = , XF86audiostop, exec, playerctl stop

@@ -47,16 +47,55 @@ hl.window_rule({
   workspace = "special:keepass silent",
 })
 
--- windowrule = workspace special:discord silent, class:armcord
-windowrule = workspace special:discord silent, class:vesktop
-windowrule = workspace special:element silent, class:Element
-windowrule = workspace special:email silent, class:thunderbird
-windowrule = workspace special:locasend silent, class:localsend
-windowrule = workspace special:sound silent, class:org.pipewire.Helvum
+hl.window_rule({
+  match = {
+    class = "vesktop",
+  },
+  workspace = "special:discord silent",
+})
 
-windowrule = workspace special:obsidian silent, class:obsidian
+hl.window_rule({
+  match = {
+    class = "Element",
+  },
+  workspace = "special:element silent",
+})
 
--- windowrule = workspace special:thunar, on-created-empty:thunar
+hl.window_rule({
+  match = {
+    class = "thunderbird",
+  },
+  workspace = "special:email silent",
+})
+
+hl.window_rule({
+  match = {
+    class = "locasend",
+  },
+  workspace = "special:locasend silent",
+})
+
+hl.window_rule({
+  match = {
+    class = "org.pipewire.Helvum",
+  },
+  workspace = "special:sound silent",
+})
+
+hl.window_rule({
+  match = {
+    class = "obsidian",
+  },
+  workspace = "special:obsidian silent",
+})
+
+
+-- Noctalia Settings
+hl.window_rule({
+    match = { class = "dev.noctalia.Noctalia" },
+    float = true,
+    size = { 1080, 920 },
+})
 
 -- flameshot
 hl.window_rule({
@@ -73,40 +112,86 @@ hl.window_rule({
 })
 
 -- file picker
-windowrule = center, class: xdg-desktop-portal-gtk
-windowrule = float, class: xdg-desktop-portal-gtk
-windowrule = size 900 600, class: xdg-desktop-portal-gtk
-windowrule = float, class:chromium, title: (Open|Save) File
-windowrule = center, class:chromium, title: (Open|Save) File
-windowrule = size 900 550, class:chromium, title: (Open|Save) File
+hl.window_rule({
+  name = "general file picker",
+  match = {
+    class = "xdg-desktop-portal-gtk",
+  },
+  center = true,
+  float = true,
+  size = {900, 600},
+})
+hl.window_rule({
+  name = "chromium file picker",
+  match = {
+    class = "chromium",
+    title = "(Open|Save) File"
+  },
+  center = true,
+  float = true,
+  size = {900, 550},
+})
 
 -- firefox
-windowrule = center, class: org.mozilla.firefox, title: Library
-windowrule = float, class: org.mozilla.firefox, title: Library
-windowrule = size 70% 80%, class: org.mozilla.firefox, title: Library
+hl.window_rule({
+  name = "firefox",
+  match = {
+    class = "org.mozilla.firefox",
+    titel = "Library",
+  },
+  center = true,
+  float = true,
+  size = {"70%", "80%"},
+})
 
 -- thunderbird
-windowrule = center, class:thunderbird, title:^(Write)(.*)
-windowrule = float, class:thunderbird, title:^(Write)(.*)
-windowrule = size 70% 80%, class:thunderbird, title:^(Write)(.*)
+hl.window_rule({
+  name = "thunderbird",
+  match = {
+    class = "thunderbird",
+    title = "^Write.*",
+  },
+  center = true,
+  float = true,
+  size = {"70%", "80%"},
+})
 
 -- steam
-windowrule = move 10% 10%, class:steam, title: (Friends)(.*)
-windowrule = float, class:steam, title: (Friends)(.*)
-windowrule = size 30% 80%, class:steam, title: (Friends)(.*)
-windowrule = center, class:steam, title: (.*)(Settings)
-windowrule = float, class:steam, title: (.*)(Settings)
-windowrule = size 70% 80%, class:steam, title: (.*)(Settings)
+hl.window_rule({
+  name = "steam friends",
+  match = {
+    class = "steam",
+    title = "Friends.*",
+  },
+  float = true,
+  size = {"30%", "80%"},
+  move = {"10%", "10%"},
+})
+hl.window_rule({
+  name = "steam settings",
+  match = {
+    class = "steam",
+    titel = ".*Settings",
+  },
+  center = true,
+  float = true,
+  size = {"70%", "80%"}
+})
 
 -- portfolio
--- windowrulev2 = center, class: Portfolio Performance, title: ()
--- windowrulev2 = float, class: Portfolio Performance, title: () 
-windowrule = center, class: xdg-desktop-portal-gtk, title:^(PDF-Import-Assistent)
-windowrule = float, class: xdg-desktop-portal-gtk, title:^(PDF-Import-Assistent)
-windowrule = size 70% 80%, class: xdg-desktop-portal-gtk, title:^(PDF-Import-Assistent)
+hl.window_rule({
+  name = "portfolio",
+  match = {
+    class = "xdg-desktop-portal-gtk",
+    title = "^PDF-Import-Assistent",
+  },
+  center = true,
+  float = true,
+  size = {"70%", "80%"},
+})
 
 -- keepass
-windowrule = noscreenshare on, class:KeePassXC
-
--- layers
--- layerrule =
+hl.layer_rule({
+  match = { namespace = "KeePassXC" },
+  no_screen_share = true,
+})

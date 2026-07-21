@@ -24,14 +24,18 @@
 --            before-sleep 'swaylock -f -c 000000'
 
 -- systemctl --user import-environment -- exec-once = awww init && sleep 1 && awww img ~/.config/hypr/black-white-tree-grave.jpg
+--"mako & waybar",
+--
+
 
 local startup = {
 "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &",
   "/usr/lib/at-spi-bus-launcher --launch-immediately",
   "systemctl --user restart pipewire",    -- Restart pipewire to avoid bugs
   "hyprpaper",
-  "mako & waybar",
-  -- Foot terminal daemon 
+  "noctalia",
+  "ghostty",
+  -- Foot terminal daemon
   "foot --server",
   "hyprctl dispatch exec 'sleep 2s && firewall-applet'",
   "hyprctl dispatch exec 'sleep 2s && system-config-printer-applet'",
